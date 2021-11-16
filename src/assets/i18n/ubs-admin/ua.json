@@ -1,0 +1,437 @@
+{
+  "ubs-client-profile": {
+    "data": "Дані користувача",
+    "message-if-edit": "Заповніть, будь ласка, Ваш профіль, щоб зробити процес замовлення максимально швидким і зручним",
+    "error-message": "Щось пішло не так... Будь ласка, перезавантажте сторінку",
+    "personal": "Особисте",
+    "name": "Ім'я",
+    "surname": "Прізвище",
+    "contacts": "Контакти",
+    "email": "Електронна скринька",
+    "phone": "№ телефону",
+    "address": "Адреса",
+    "city": "Місто",
+    "street": "Вулиця",
+    "house": "Будинок",
+    "corpus": "Корпус",
+    "entrance": "Під'їзд",
+    "district": "Район",
+    "account": "Зв'язок із соцмережами",
+    "account-message": "Зв'язати з акаунтом Google",
+    "additional": "Додаткові дії",
+    "change-password": "Зміна паролю",
+    "old-password": "введіть старий пароль",
+    "new-password": "введіть новий пароль",
+    "repeat-password": "повторіть новий пароль",
+    "password-error-confirm": "Паролі не співпадають!",
+    "password-error-new": "Введіть новий пароль!",
+    "delete-title": "Видалення профілю",
+    "delete-message": "Якщо Ви видалите свій профіль, ваші бонуси згорять, а інформацію про ваші замовлення буде видалено без можливості відновлення",
+    "btn": {
+      "edit": "Редагувати дані",
+      "cancel": "Скасувати зміни",
+      "save": "Зберегти зміни",
+      "change-password": "Змінити пароль",
+      "change-password-cancel": "Скасувати",
+      "delete-profile": "Видалити профіль",
+      "delete-profile-cancel": "Назад",
+      "delete-profile-save": "Видалити"
+    }
+  },
+  "add-violation-modal": {
+    "add-violation": "Додати порушення",
+    "level-of-violation": "Оберіть ступінь порушення",
+    "easy-violation": "Легке",
+    "serious-violation": "Серйозне",
+    "description": "Опишіть, що сталося",
+    "placeholder": "Будь-які деталі, які Ви хотіли б повідомити додатково щодо цього замовлення",
+    "label-for-photo": "Фотографії порушення",
+    "requirement": "Ви можете завантажити зображення у форматі PNG чи JPG розміром до 10MБ",
+    "drag-photo": "Перетягніть фото сюди",
+    "error-message-for-size": "Розмір файлу більше 10 МВ. Будь ласка, виберіть інший файл",
+    "error-message-for-type": "Неправильний формат файлу. Будь ласка, виберіть інший файл",
+    "file-upload": "Завантажити фото з пристрою",
+    "delete-button": "Видалити",
+    "cancel-button": "Скасувати",
+    "add-button": "Додати порушення",
+    "date": "Дата:",
+    "info-about-date": "Додано:"
+  },
+  "order-edit": {
+    "order-status": {
+      "formed": "Сформовано",
+      "adjustment": "Змінено",
+      "brought-it-himself": "Вивезено самостійно",
+      "confirmed": "Підтверджено",
+      "on-the-route": "У дорозі",
+      "done": "Виконано",
+      "not-taken-out": "Не вивезено",
+      "cancelled": "Скасовано"
+    },
+    "payment-status": {
+      "paid": "Оплачено",
+      "not-paid": "Не оплачено",
+      "half-paid": "Частково оплачено",
+      "payment-refunded": "Оплату повернуто"
+    },
+    "need-to-pay": "Потрібно доплатити",
+    "status": {
+      "title": "Замовлення",
+      "order-date": "Дата оформлення",
+      "order-label": "Статус замовлення",
+      "payment-label": "Статус оплати"
+    },
+    "comment": {
+      "label": "Коментар адміністратора",
+      "placeholder": "Будь-які деталі, які Ви хотіли б повідомити додатково щодо цього замовлення"
+    },
+    "btn": {
+      "back": "Назад",
+      "cancel": "Скасувати",
+      "save": "Зберегти"
+    }
+  },
+  "address-details": {
+    "title": "Адреса вивезення відходів",
+    "district": "Район",
+    "settlement": "Населений пункт",
+    "street": "Вулиця",
+    "comment-label": "Коментар до адреси від клієнта",
+    "comment-placeholder": "Будь-які деталі, які Ви хотіли б повідомити додатково щодо цього замовлення",
+    "building": "Будинок",
+    "corpus": "Корпус",
+    "entrance": "Під'їзд",
+    "region": "Область"
+  },
+  "customer-info": {
+    "title": "Інформація про клієнта",
+    "customer": {
+      "title": "Клієнт",
+      "name-label": "Ім'я",
+      "surname-label": "Прізвище",
+      "name-placeholder": "Ім'я",
+      "surname-placeholder": "Прізвище",
+      "tel-label": "Телефон",
+      "tel-placeholder": "+380 00 000 00 00",
+      "email-label": "Email",
+      "email-placeholder": "mail@mail.com"
+    },
+    "recipient": {
+      "title": "Відправник",
+      "name-label": "Ім'я",
+      "surname-label": "Прізвище",
+      "name-placeholder": "Ім'я",
+      "surname-placeholder": "Прізвище",
+      "tel-label": "Телефон",
+      "tel-placeholder": "+380 00 000 00 00",
+      "email-label": "Email",
+      "email-placeholder": "mail@mail.com"
+    },
+    "violation": {
+      "title": "Порушення клієнта",
+      "amount": "Всього",
+      "current-order": "Поточне замовлення",
+      "button": "Додати порушення"
+    }
+  },
+  "customer-details": {
+    "data": "Дані клієнта",
+    "personal": "Особисте",
+    "name": "Нікнейм ",
+    "contacts": "Контакти",
+    "email": "Електронна скринька",
+    "phone": "№ телефону",
+    "additionalInfo": "Додаткова інформація",
+    "number_of_orders": "Кількість замовлень",
+    "orderDate": "Дата замовлення",
+    "violations": "Порушення",
+    "dateOfRegistration": "Дата реєстрації",
+    "goBack": "Назад"
+  },
+  "order-details": {
+    "title": "Деталі замовлення",
+    "service": "Послуга",
+    "volume": "Об'єм",
+    "cost": "Вартість за одиницю",
+    "planned-amount": "Планована к-ть",
+    "approved-amount": "Підтверджена к-ть",
+    "exported-amount": "Вивезена к-ть",
+    "bags-amount": "Загальна кількість пакетів",
+    "order-sum": "Сума замовлення",
+    "certificate": "Сертифікат",
+    "bonuses": "Використані бонуси",
+    "sum-to-pay": "Сума до оплати",
+    "ubs-courier": "УБС Кур'єр",
+    "min-sum": "Замовлення не може бути змінене. Мінімальна сума замовлення",
+    "certificate-number-label": "Номер сертифікату",
+    "order-number-label": "Номер замовлення з магазину",
+    "client-comment": {
+      "label": "Коментар до замовлення від клієнта",
+      "placeholder": "Будь-які деталі, які Ви хотіли б повідомити додатково щодо цього замовлення"
+    },
+    "send-button": "Надіслати повідомлення"
+  },
+  "export-excel-popup": {
+    "buttons": {
+      "next": "Далі",
+      "cancel": "Скасувати"
+    },
+    "select-data": "Оберіть дані для експорту",
+    "current": "Зберегти поточний вигляд",
+    "all": "Зберегти всю таблицю (Займе деякий час)"
+  },
+  "order-payment": {
+    "title": "Оплата замовлення",
+    "order-size": "Замовлення виконано у розмірі",
+    "add-payment-btn": "Додати оплату",
+    "order-date": "Дата оплати",
+    "payment-id": "ID платежу",
+    "sum": "Сума",
+    "comment-bill": "Коментар/Чек"
+  },
+  "ubs-tables": {
+    "export-to-excel": "Експортувати в  Excel",
+    "table-view": "Вид таблиці",
+    "add-certificate": "Додати сертифікат",
+    "all-elements": "Відображати всі колонки",
+    "filter": "Фільтр"
+  },
+  "ubs-customer-filters": {
+    "total-customers": "Кількість користувачів:",
+    "registration-date": "Дата реєстрації в системі:",
+    "last-order-date": "Дата останього замовлення:",
+    "orders-amount": "К-сть замовлень:",
+    "violations": "Порушення:",
+    "bonuses": "Баланс бонусного рахунку:",
+    "from": "Від",
+    "to": "До",
+    "reset": "Скасувати",
+    "nothing-found": "За вашими фільтрами нічого не знайдено"
+  },
+  "export-details": {
+    "title": "Деталі вивезення",
+    "export-date": "Дата вивезення",
+    "export-time": "Час вивезення",
+    "station": "Станція приймання"
+  },
+  "order-history": {
+    "title": "Історія замовлення",
+    "date": "Дaта",
+    "time": "Час",
+    "event": "Подія",
+    "author": "Автор"
+  },
+  "responsible-persons": {
+    "title": "Відповідальні особи",
+    "service-manager": "Менеджер послуги",
+    "call-manager": "Менеджер обдзвону",
+    "logistician": "Логіст",
+    "navigator": "Штурман",
+    "driver": "Водій"
+  },
+  "cancel-modal": {
+    "question": "У разі скасування внесені зміни будуть втрачені. Чи дійсно Ви бажаєте скасувати зміни?",
+    "disagree": "Ні",
+    "agree": "Так"
+  },
+  "go-back-modal": {
+    "question": "У разі повернення назад внесені зміни будуть втрачені. Чи дійсно Ви бажаєте повернутись до таблиці?",
+    "disagree": "Ні",
+    "agree": "Так"
+  },
+  "bonuses": {
+    "no-bonuses": "Вам ще не нараховано бонусів.",
+    "get-bonuses": "Дізнатись, за що нараховуються бонуси",
+    "title": "Бонуси",
+    "about-bonuses-system": "Про систему бонусів",
+    "enrollment-date": "Дата зарахування",
+    "amount": "Кількість",
+    "reason": "Причина",
+    "order": "Замовлення"
+  },
+  "user-orders": {
+    "no-orders": "Ви ще не зробили замовлень у нас.",
+    "make-order": "Зробити замовлення",
+    "order-title": "Ваші замовлення",
+    "current-orders": "Поточні замовлення",
+    "order-history": "Історія замовлень",
+    "order-number": "№ замовлення",
+    "order-status": "Статус",
+    "payment-amount": "Сума оплати",
+    "btn": {
+      "cancel": "Скасувати",
+      "pay": "Оплатити",
+      "order-again": "Замовити ще раз"
+    },
+    "details": {
+      "title": "Деталі замовлення",
+      "services": "Послуги",
+      "volume": "Об'єм",
+      "cost": "Вартість",
+      "bags-amount": "Кількість пакетів",
+      "sum": "Сума",
+      "currency": "грн",
+      "litr": "л",
+      "pieces": "шт.",
+      "order-sum": "Сума замовлення:",
+      "certificate": "Сертифікат:",
+      "bonuses": "Бонуси:",
+      "amount-due": "Сума до оплати:",
+      "services-amount": "Сума наданих послуг:",
+      "delivery": "Доставка з Еко магазину",
+      "order-number": "Номери ваших замовлень:",
+      "recipient": "Отримувач",
+      "export-address": "Адреса вивезення замовленних послуг",
+      "comment": "Коментар:",
+      "receipt": "Завантажити квитанцію"
+    }
+  },
+  "employees": {
+    "title": "Працівники",
+    "required-fields": "*Обов'язкові поля",
+    "name": "Ім'я*",
+    "name-placeholder": "Ім'я",
+    "surname": "Прізвище*",
+    "surname-placeholder": "Прізвище",
+    "phone-number": "Номер телефону*",
+    "position": "Посада*",
+    "receiving-station": "Станція приймання*",
+    "photo": "Фото",
+    "drag-photo": "Перетягніть зображення, або",
+    "download-photo": "завантажте з пристрою",
+    "btn": {
+      "cancel": "Скасувати",
+      "add": "Додати",
+      "add-employee": "Додати працівника",
+      "edit": "Редагувати",
+      "delete": "Видалити"
+    }
+  },
+  "ubs-sidebar": {
+    "customers": "Клієнти",
+    "certificates": "Сертифікати",
+    "orders": "Замовлення",
+    "employees": "Працівники",
+    "documents": "Документи",
+    "schedule": "Графік",
+    "bonuses": "Бонуси",
+    "tariffs": "Тарифи"
+  },
+  "ubs-employee": {
+    "add-employee": "Додати працівника",
+    "required-fields": "*Обов’язкові поля",
+    "name": "Ім’я*",
+    "surname": "Прізвище*",
+    "phone-number": "Номер телефону*",
+    "email": "Email",
+    "position": "Посада*",
+    "receiving-station": "Станція приймання*",
+    "image-input": "Фото",
+    "picture-description-1": "Перетягніть",
+    "picture-description-2": "зображення або",
+    "browse-1": "завантажте з",
+    "browse-2": "пристрою",
+    "add": "Додати",
+    "cancel": "Скасувати",
+    "update": "Оновити"
+  },
+  "ubs-user": {
+    "orders": "Замовлення",
+    "invoice": "Рахунок",
+    "user_data": "Дані користувача",
+    "messages": "Повідомлення"
+  },
+  "ubs-tariffs": {
+    "services": "Сервіси",
+    "name_of_the_service": "Найменування послуги",
+    "capacity": "Об’єм",
+    "service_description": "Опис послуги",
+    "basic_cost": "Базова вартість",
+    "carriers_commission": "Комісія перевізника",
+    "full_cost": "Повна вартість",
+    "tariffs_for_services": "Тарифи на послуги",
+    "order_limits": "Ліміти замовлення",
+    "min_order_amount": "Сума замовлення від",
+    "to": "до",
+    "min_number_of_packages": "Кількість пакетів від",
+    "min_set_of_packages": "Мінімальний набір пакетів",
+    "info_about_order_limits_header": "Інформація про ліміти замовлення",
+    "safe_waste": "Текстильні відходи 120 л",
+    "textile_waste": "Безпечні відходи 120 л",
+    "info_about_order_limits": "Інформація про ліміти замовлення",
+    "placeholder_order_limits_info": "Інформація про ліміти замовлення, яка буде відображатись у формі замовлення клієнта",
+    "btn": {
+      "add_service": "Додати сервіс",
+      "add_service2": "Додати послугу",
+      "save_changes": "Зберегти зміни",
+      "add_carrier": "Додати перевізника"
+    }
+  },
+  "ubs-tariffs-add-service": {
+    "add_service": "Додати послугу",
+    "edit_service": "Редагувати послугу",
+    "name_of_the_service": "Найменування послуги",
+    "placeholder-service": "Введіть назву послуги",
+    "capacity": "Об'єм",
+    "basic_cost": "Базова вартість",
+    "commission": "Комісія",
+    "full_cost": "Повна вартість",
+    "service_description": "Опис послуги",
+    "placeholder-text": "Опишіть, що саме входить у послугу, і умови /правила її надання",
+    "error_message": "Заповніть виділені поля",
+    "btn": {
+      "add": "Додати",
+      "cancel": "Скасувати",
+      "save": "Зберегти"
+    }
+  },
+  "ubs-user-notification": {
+    "title": "Ваші повідомлення",
+    "title-table": {
+      "number": "№ замовлення",
+      "theme-messages": "Тема повідомлення",
+      "time": "Час"
+    }
+  },
+  "ubs-tariffs-delete-service": {
+    "delete_question": "Видалити цей рядок?",
+    "yes": "так",
+    "no": "ні"
+  },
+  "user": {
+    "lower-nav-bar": {
+      "about-us": "Про нас",
+      "sorting-rules": "Правила сортування",
+      "eco-shop": "Еко-магазин"
+    }
+  },
+  "nav-bar": {
+    "user-settings": "Налаштування",
+    "sign-out": "Вийти",
+    "sign-in": "Увійти",
+    "management": "Менеджмент"
+  },
+  "footer": {
+    "station": "Станція",
+    "address": "Київ, вул. Саперно-Слобідська, 25",
+    "schedule": "Графік роботи станції",
+    "mon-tue": " пн-вт",
+    "day-off": " вихідний",
+    "wed-fri": " ср–пт",
+    "from": "з",
+    "to": "до",
+    "service": "*платна послуга «Досортування» доступна",
+    "sat-sun": " сб-нд",
+    "accept-compost": "Компост приймаємо впродовж тижня в робочі години станції (крім понеділка і вівторка).",
+    "ubs-world-community": "УБС — у світовій спільноті",
+    "glad-for-letters": "Раді вашим листам",
+    "your-email": "Ваш email",
+    "subscribe-newsletter": "Підписатися на корисну розсилку:",
+    "subscribe-us": "ПІДПИСАТИСЯ",
+    "user-agreement": "Угода користувача",
+    "public-offer": "Публічна оферта",
+    "help-the-project": "Як допомогти проєкту",
+    "how-to-get-there": "Як доїхати?",
+    "ukraine-without-garbage": "Україна без сміття"
+  }
+}

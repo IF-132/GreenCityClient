@@ -1,0 +1,16 @@
+<div class="app-wrapper">
+  <div class="skip-container">
+    <span #focusFirst tabindex="-1"></span>
+    <a class="skip" (click)="skipFocus()" pageScroll href=".main-content">
+      {{ 'accessibility.skip-to-the-main-content' | translate }}
+    </a>
+  </div>
+  <app-header></app-header>
+  <app-search-popup></app-search-popup>
+  <div class="main-content" [ngClass]="toggle ? 'app-container stop-scroll' : 'app-container'">
+    <div #focusLast tabindex="-1" aria-label="Tab To Main"></div>
+    <router-outlet (activate)="setFocus()"></router-outlet>
+  </div>
+  <app-footer *ngIf="!isUBS"></app-footer>
+  <app-ubs-footer *ngIf="isUBS"></app-ubs-footer>
+</div>

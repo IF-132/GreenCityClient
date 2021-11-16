@@ -1,0 +1,46 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 15px;
+  align-items: center;
+
+  span {
+    display: inline-block;
+    margin-top: -10px;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--secondary-dark-grey);
+    height: 24px;
+  }
+}
+
+.ul-eco-buttons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  white-space: nowrap;
+  min-height: 42px;
+
+  li {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 576px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: max-content auto;
+    row-gap: 0;
+    column-gap: 24px;
+
+    span {
+      font-size: 20px;
+    }
+  }
+}

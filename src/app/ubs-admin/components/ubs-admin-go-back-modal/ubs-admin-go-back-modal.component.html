@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <p class="question">{{ 'go-back-modal.question' | translate }}</p>
+  </div>
+  <div class="row justify-content-end">
+    <button class="disagree" (click)="doNotDiscardChanges()">{{ 'go-back-modal.disagree' | translate }}</button>
+    <button class="agree" (click)="discardChanges()">{{ 'go-back-modal.agree' | translate }}</button>
+  </div>
+</div>

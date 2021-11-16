@@ -1,0 +1,77 @@
+<div class="main-container" [ngSwitch]="true">
+  <div class="wrapper" *ngSwitchCase="!selectedPhoto && !isNotification && !isDragAndDropMenu">
+    <app-user-profile-image [imgPath]="avatarImg" [additionalImgClass]="'big'" [firstName]="data.firstName"> </app-user-profile-image>
+    <p *ngIf="isWarning" class="warning">{{ 'user.edit-profile.picture-tooltip' | translate }}</p>
+    <p *ngIf="!isWarning">{{ 'user.edit-profile.change-photo' | translate }}</p>
+    <div class="buttons">
+      <button type="button" class="primary-global-button" (click)="closeEditPhoto()" tabindex="0">
+        {{ 'user.edit-profile.btn.cancel' | translate }}
+      </button>
+      <button type="button" class="primary-global-button delete" [disabled]="!avatarImg" (click)="isNotification = true" tabindex="0">
+        {{ 'user.edit-profile.btn.delete' | translate }}
+      </button>
+      <button class="secondary-global-button" (click)="isDragAndDropMenu = true">
+        {{ 'user.edit-profile.btn.new-photo' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="dropzone-wrapper" [class.dropzone-error]="isWarning" *ngSwitchCase="!selectedPhoto && !isNotification && isDragAndDropMenu">
+    <div *ngIf="!files.length" class="dropzone" appDragAndDrop (files)="filesDropped($event)">
+      <div class="text-wrapper">
+        <div class="centered">
+          <span *ngIf="isWarning">{{ 'drag-and-drop.not-uploaded-warning' | translate }}<br /><br /></span>
+          {{ 'drag-and-drop.picture-description' | translate }}
+          <label for="upload"
+            ><span browse>{{ 'drag-and-drop.browse' | translate }}</span></label
+          >
+          <input type="file" id="upload" (change)="onSelectPhoto($event)" />
+        </div>
+      </div>
+    </div>
+    <div class="download-info">{{ 'drag-and-drop.picture-tooltip' | translate }}</div>
+  </div>
+  <div *ngSwitchDefault>
+    <div *ngFor="let file of files">
+      <div class="wrapper">
+        <div class="cropper-block">
+          <image-cropper
+            [maintainAspectRatio]="true"
+            [containWithinAspectRatio]="false"
+            [roundCropper]="true"
+            [resizeToHeight]="148"
+            [imageFile]="file.file"
+            (imageCropped)="imageCropped($event)"
+            class="selected-photo"
+          >
+          </image-cropper>
+        </div>
+        <p *ngIf="isWarning" class="warning">{{ 'user.edit-profile.picture-tooltip' | translate }}</p>
+        <p *ngIf="!isWarning">{{ 'user.edit-profile.would-you-like' | translate }}</p>
+        <div class="buttons">
+          <button class="secondary-global-button" (click)="selectedPhoto = false; files.pop()">
+            {{ 'user.edit-profile.btn.change-photo' | translate }}
+          </button>
+          <button type="button" class="secondary-global-button" [disabled]="isWarning" (click)="savePhoto()" tabindex="0">
+            <span *ngIf="loadingAnim" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{ 'user.edit-profile.btn.save-photo' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isNotification" class="wrapper">
+    <p>{{ 'user.edit-profile.notification' | translate }}</p>
+    <div class="buttons">
+      <button type="button" class="primary-global-button confirm-delete" (click)="isNotification = false">
+        {{ 'user.edit-profile.btn.continue' | translate }}
+      </button>
+      <button type="button" class="secondary-global-button" (click)="deletePhoto()">
+        <span *ngIf="loadingAnim" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{ 'user.edit-profile.btn.yes-delete' | translate }}
+      </button>
+    </div>
+  </div>
+  <button class="cancel" (click)="closeEditPhoto()" tabindex="0">
+    <img src="{{ cancelButton }}" alt="cancel" />
+  </button>
+</div>

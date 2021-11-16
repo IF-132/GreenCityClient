@@ -1,0 +1,110 @@
+<main role="main" id="main-content">
+  <div class="main container">
+    <div class="places-filter">
+      <div class="search">
+        <div class="search-elements">
+          <img class="search-icon" src="{{ searchIcon }}" alt="search-icon" />
+          <input
+            #searchInput
+            class="form-control search-write"
+            type="text"
+            name="search"
+            list="places_names"
+            [value]="searchName"
+            placeholder="{{ 'user.map.searching-for-a-place' | translate }}"
+            (keyup)="searchNameChange(searchInput.value)"
+          />
+          <datalist id="places_names">
+            <option *ngFor="let card of cardsCollection" value="{{ card.cardName }}">{{ card.cardText }}</option>
+          </datalist>
+          <input
+            matInput
+            matGoogleMapsAutocomplete
+            country="ua"
+            class="choose-location-input"
+            (onLocationSelected)="onLocationSelected($event)"
+            placeholder="Choose location"
+          />
+        </div>
+      </div>
+      <div class="filter">
+        <app-tag-filter
+          (tagsList)="basicFiltersChange($event)"
+          [header]="'homepage.eco-news.filter'"
+          [storageKey]="'Places-filter'"
+          [tagsListData]="tagList"
+        ></app-tag-filter>
+        <app-more-options-filter (filtersChange)="moreOptionsChange($event)"> </app-more-options-filter>
+      </div>
+    </div>
+    <hr />
+    <div class="places-map">
+      <div class="place-info">
+        <mat-drawer-container class="example-container sidebar-container" autosize>
+          <mat-drawer #drawer class="example-sidenav sidebar-drawer" mode="side" closed>
+            <div class="sidebar-content" *ngIf="activePlaceInfo">
+              <span class="close-mark" (click)="drawer.toggle(false)"></span>
+              <h6 class="content-title">{{ activePlaceInfo.name }}</h6>
+              <span class="content-address">{{ activePlaceInfo.location.address }}</span>
+              <p class="content-description" *ngFor="let comment of activePlaceInfo.comments">{{ comment }}</p>
+              <span class="content-website">{{ 'user.places-card.card-description' | translate }}</span>
+              <ul class="content-list">
+                <li class="content-list-event">
+                  <img class="event-icon" src="{{ notification }}" alt="event-icon" />
+                  <p class="event-description">{{ 'user.places-card.card-first-event' | translate }}</p>
+                </li>
+                <li class="content-list-event">
+                  <img class="event-icon" src="{{ share }}" alt="event-icon" />
+                  <p class="event-description">{{ 'user.places-card.card-second-event' | translate }}</p>
+                </li>
+              </ul>
+              <h6 class="content-reviews-title">
+                {{ 'user.places-card.card-rating' | translate }} &nbsp;&nbsp; <span>{{ activePlaceInfo.rate }}</span>
+              </h6>
+              <div class="stars-container">
+                <img *ngFor="let star of getStars(activePlaceInfo.rate)" class="star" src="{{ star }}" alt="star" />
+              </div>
+              <span class="content-reviews-amount">{{ 'user.places-card.card-reviews' | translate }}</span>
+            </div>
+          </mat-drawer>
+        </mat-drawer-container>
+      </div>
+      <div class="google-map" #map>
+        <agm-map
+          [style.width.%]="100"
+          [style.height.%]="100"
+          [zoom]="zoom"
+          (centerChange)="mapCenterChange($event)"
+          (boundsChange)="mapBoundsChange($event)"
+          (idle)="onMapIdle()"
+          (mapReady)="onMapReady($event)"
+        >
+          <agm-marker
+            *ngFor="let place of places"
+            [latitude]="place.location.lat"
+            [longitude]="place.location.lng"
+            (markerClick)="selectPlace(place)"
+            [iconUrl]="place.id === activePlace?.id ? greenIconUrl : redIconUrl"
+            class="marker"
+          ></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+    <div class="places-recommendation">
+      <h6 class="recommendation-title">{{ 'user.places-card.card-popular' | translate }}</h6>
+      <div class="card-container">
+        <div *ngFor="let card of cardsCollection" class="card" [id]="card.id">
+          <img class="card-img-top" src="{{ card.cardImgUrl }}" alt="place-image" />
+          <div class="card-body">
+            <div class="card-headers">
+              <h5 class="card-title">{{ card.cardName }}</h5>
+              <span class="card-address">{{ card.cardAddress }}</span>
+            </div>
+            <p class="card-text">{{ card.cardText }}</p>
+            <img class="card-bookmark" src="{{ card.favorite }}" alt="bookmark" (click)="moveToFavorite($event)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

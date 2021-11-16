@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 0;
+  min-width: 95%;
+}
+
+@media only screen and (min-width: 1224px) {
+  .container {
+    justify-content: center;
+  }
+}
+
+.noFriends-wraper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  .noFriends {
+    font-family: var(--secondary-font);
+    font-size: 32px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 48px;
+  }
+}
+
+.friends-list {
+  margin: 44px auto 30px;
+}

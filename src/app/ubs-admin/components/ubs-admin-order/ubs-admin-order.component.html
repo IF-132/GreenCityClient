@@ -1,0 +1,44 @@
+<app-header></app-header>
+<app-search-popup></app-search-popup>
+<div *ngIf="order && orderDetails; else spinner" class="container">
+  <div class="row">
+    <button class="back-button-top" (click)="openGoBackModal()">
+      <
+      {{ 'order-edit.btn.back' | translate }}
+    </button>
+  </div>
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <div class="box">
+      <app-ubs-admin-order-status [orderStatusForm]="getFormGroup('orderStatusForm')" [order]="order"> </app-ubs-admin-order-status>
+      <app-ubs-admin-order-client-info [clientInfoForm]="getFormGroup('clientInfoForm')" [order]="order"> </app-ubs-admin-order-client-info>
+      <app-ubs-admin-address-details [addressDetailsForm]="getFormGroup('addressDetailsForm')" [order]="order">
+      </app-ubs-admin-address-details>
+      <app-ubs-admin-order-details-form
+        [orderDetailsForm]="getFormGroup('orderDetailsForm')"
+        [orderDetails]="orderDetails"
+      ></app-ubs-admin-order-details-form>
+      <app-ubs-admin-order-payment></app-ubs-admin-order-payment>
+      <app-ubs-admin-export-details [exportDetailsForm]="getFormGroup('exportDetailsForm')" [order]="order"> </app-ubs-admin-export-details>
+      <app-ubs-admin-responsible-persons [responsiblePersonsForm]="getFormGroup('responsiblePersonsForm')" [order]="order">
+      </app-ubs-admin-responsible-persons>
+      <app-ubs-admin-order-history [order]="order"></app-ubs-admin-order-history>
+    </div>
+    <div class="row">
+      <button class="back-button" (click)="openGoBackModal()">
+        <
+        {{ 'order-edit.btn.back' | translate }}
+      </button>
+      <div class="controls">
+        <button type="reset" class="cancel-button" (click)="$event.preventDefault(); openCancelModal()" [disabled]="!orderForm.touched">
+          {{ 'order-edit.btn.cancel' | translate }}
+        </button>
+        <button type="submit" class="save-button" [disabled]="!orderForm.touched || !orderForm.valid">
+          {{ 'order-edit.btn.save' | translate }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #spinner>
+  <app-spinner class="spinner"></app-spinner>
+</ng-template>
