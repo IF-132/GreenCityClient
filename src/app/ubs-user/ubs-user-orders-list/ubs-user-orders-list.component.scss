@@ -38,10 +38,20 @@
 }
 
 .empty_card {
-  display: grid;
-  grid-template-columns: 56px 143px 172px 222px 268px;
+  display: flex;
+  // display: grid;
+  // grid-template-columns: 56px 143px 172px 222px 268px;
   justify-items: center;
   align-items: center;
+
+  .orders_group {
+    display: grid;
+    grid-template-columns: 56px 143px 172px 200px 0px;
+    justify-items: center;
+    align-items: center;
+    padding: 15px 0px;
+    cursor: pointer;
+  }
 
   .order_sum {
     margin-right: 75px;
