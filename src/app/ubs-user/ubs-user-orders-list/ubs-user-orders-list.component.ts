@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class UbsUserOrdersListComponent {
   @Input()
   orders: any[];
+  current: number;
 
   isOrderFormed(order: any) {
     return order.orderStatus === 'FORMED';
@@ -25,6 +26,7 @@ export class UbsUserOrdersListComponent {
     this.orders.forEach((order) => {
       if (order.id === id) {
         order.extend = !order.extend;
+        this.current = id;
       }
     });
   }

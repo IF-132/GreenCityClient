@@ -6,8 +6,12 @@
 <div *ngFor="let order of orders" class="card">
   <div class="empty_card">
     <div class="orders_group" (click)="changeCard(order.id)">
-      <img *ngIf="order.extend" src="assets/img/ubs-admin-orders/arrow_down.svg" alt="arrow down" />
-      <img *ngIf="!order.extend" src="assets/img/ubs-admin-orders/arrow_up.svg" alt="arrow up" />
+      <img *ngIf="order.id == current && order.extend" src="assets/img/ubs-admin-orders/arrow_down.svg" alt="arrow down" />
+      <img
+        *ngIf="order.id != current || (order.id == current && !order.extend)"
+        src="assets/img/ubs-admin-orders/arrow_up.svg"
+        alt="arrow up"
+      />
       <div>{{ order.id }}</div>
       <div>{{ order.orderStatusName }}</div>
       <div class="order_sum">{{ order.orderDiscountedPrice }}</div>
@@ -24,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="order.extend">
+  <div *ngIf="order.extend && current == order.id">
     <app-ubs-user-order-details [order]="order"></app-ubs-user-order-details>
   </div>
 </div>
