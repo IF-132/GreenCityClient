@@ -140,10 +140,11 @@
     "bags": "bags"
   },
   "confirmation": {
-    "cancel": "Yes, exit",
+    "cancel": "Save & exit",
     "dismiss": "Continue",
+    "delete": "Delete",
     "title": "Are you sure you want to exit?",
-    "subTitle": "You order will be saved in personal account"
+    "subTitle": "You order will be saved in personal account!"
   },
   "confirm-page": {
     "title-text": "Your order is accepted",
