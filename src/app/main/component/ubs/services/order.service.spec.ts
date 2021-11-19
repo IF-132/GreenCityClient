@@ -62,10 +62,11 @@ describe('OrderService', () => {
     street: '',
     houseCorpus: '',
     entranceNumber: '',
-    houseNumber: ''
+    houseNumber: '',
+    shouldBePaid: false
   };
 
-  const orderMock = new Order([''], 7, [bagMock], [''], '8', personalData, 9);
+  const orderMock = new Order([''], 7, [bagMock], [''], '8', personalData, 9, false);
 
   let service: OrderService;
   let httpMock: HttpTestingController;
