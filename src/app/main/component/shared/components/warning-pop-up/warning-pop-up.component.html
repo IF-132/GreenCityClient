@@ -1,6 +1,6 @@
 <div class="main-container">
   <button class="close" (click)="userReply(false)">
-    <img src="{{ closeButton }}" alt="close">
+    <img src="{{ closeButton }}" alt="close" />
   </button>
   <div class="warning-text">
     <div class="warning-title" *ngIf="popupTitle">
@@ -11,11 +11,14 @@
     </div>
   </div>
   <div class="buttons-container">
-    <button class="secondary-global-button" (click)="userReply(false)">
+    <button [ngClass]="router.url === '/ubs/order' ? 'ubs-secondary-global-button' : 'secondary-global-button'" (click)="userReply(false)">
       {{ popupCancel | translate }}
     </button>
-    <button class="primary-global-button" (click)="userReply(true)">
+    <button [ngClass]="router.url === '/ubs/order' ? 'ubs-primary-global-button' : 'primary-global-button'" (click)="userReply(true)">
       {{ popupConfirm | translate }}
+    </button>
+    <button class="ubs-primary-global-button red" type="button" *ngIf="visible" (click)="cancelUBSwithoutSaving()">
+      {{ 'confirmation.delete' | translate }}
     </button>
   </div>
 </div>
