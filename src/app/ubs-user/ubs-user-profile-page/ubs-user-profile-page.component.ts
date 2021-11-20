@@ -31,6 +31,8 @@ export class UbsUserProfilePageComponent implements OnInit {
     street: ''
   };
 
+  isReadyForProduction = false;
+
   googleIcon = SignInIcons.picGoogle;
   isEditing = false;
   isFetching = false;
