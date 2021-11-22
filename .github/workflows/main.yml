@@ -7,6 +7,8 @@ on:
     branches: [ master, dev ]
   pull_request:
     branches: [ master, dev ]
+  pull_request_target:
+    types: [ opened, edited ]
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
