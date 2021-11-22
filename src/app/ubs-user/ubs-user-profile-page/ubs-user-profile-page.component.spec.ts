@@ -126,7 +126,7 @@ describe('UbsUserProfilePageComponent', () => {
   it('spiner has to be defined if (isFetching === true)', () => {
     component.isFetching = true;
     fixture.detectChanges();
-    const spiner = fixture.debugElement.query(By.css('app-spinner')).nativeElement;
+    const spiner = fixture.debugElement.query(By.css('app-ubs-spinner')).nativeElement;
     expect(spiner).toBeDefined();
   });
 
