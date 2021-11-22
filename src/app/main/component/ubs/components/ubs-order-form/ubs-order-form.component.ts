@@ -6,7 +6,6 @@ import { UBSPersonalInformationComponent } from '../ubs-personal-information/ubs
 import { UBSOrderDetailsComponent } from '../ubs-order-details/ubs-order-details.component';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { UBSOrderFormService } from './../../services/ubs-order-form.service';
-import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-ubs-order-form',
@@ -17,7 +16,7 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
   firstStepForm: FormGroup;
   secondStepForm: FormGroup;
   thirdStepForm: FormGroup;
-  completed: boolean;
+  completed = false;
 
   @ViewChild('firstStep') stepOneComponent: UBSOrderDetailsComponent;
   @ViewChild('secondStep') stepTwoComponent: UBSPersonalInformationComponent;
@@ -27,8 +26,7 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
   constructor(
     private cdr: ChangeDetectorRef,
     private shareFormService: UBSOrderFormService,
-    private localStorageService: LocalStorageService,
-    private orderService: OrderService
+    private localStorageService: LocalStorageService
   ) {}
 
   @HostListener('window:beforeunload') onClose() {
@@ -52,10 +50,6 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
     if (this.stepper?.selected.state === 'finalStep') {
       this.completed = true;
     }
-    if (this.stepper?.selected.state !== 'finalStep') {
-      this.completed = false;
-    }
-    this.orderService.getStepperFinal(this.completed);
   }
 
   saveDataOnLocalStorage(): void {

@@ -2,8 +2,6 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { OrderService } from '../../../ubs/services/order.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-warning-pop-up',
@@ -17,18 +15,8 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
   public popupCancel: string;
   public closeButton = './assets/img/profile/icons/cancel.svg';
   private destroyed$: ReplaySubject<any> = new ReplaySubject<any>(1);
-  public visible: boolean;
 
-  constructor(
-    private matDialogRef: MatDialogRef<WarningPopUpComponent>,
-    @Inject(MAT_DIALOG_DATA) public data,
-    public orderService: OrderService,
-    public router: Router
-  ) {
-    this.orderService.getStepperFinal$.subscribe((data) => {
-      this.visible = data;
-    });
-  }
+  constructor(private matDialogRef: MatDialogRef<WarningPopUpComponent>, @Inject(MAT_DIALOG_DATA) public data) {}
 
   ngOnInit() {
     this.setTitles();
@@ -60,13 +48,8 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
     if (reply) {
       localStorage.removeItem('newsTags');
     }
-    this.matDialogRef.close(reply);
-  }
 
-  public cancelUBSwithoutSaving(): void {
-    this.orderService.cancelUBSwithoutSaving();
-    this.router.navigate(['ubs']);
-    this.matDialogRef.close();
+    this.matDialogRef.close(reply);
   }
 
   ngOnDestroy(): void {

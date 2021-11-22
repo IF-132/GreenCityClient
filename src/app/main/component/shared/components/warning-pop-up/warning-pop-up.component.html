@@ -11,14 +11,11 @@
     </div>
   </div>
   <div class="buttons-container">
-    <button [ngClass]="router.url === '/ubs/order' ? 'ubs-secondary-global-button' : 'secondary-global-button'" (click)="userReply(false)">
+    <button class="secondary-global-button" (click)="userReply(false)">
       {{ popupCancel | translate }}
     </button>
-    <button [ngClass]="router.url === '/ubs/order' ? 'ubs-primary-global-button' : 'primary-global-button'" (click)="userReply(true)">
+    <button class="primary-global-button" (click)="userReply(true)">
       {{ popupConfirm | translate }}
-    </button>
-    <button class="ubs-primary-global-button red" type="button" *ngIf="visible" (click)="cancelUBSwithoutSaving()">
-      {{ 'confirmation.delete' | translate }}
     </button>
   </div>
 </div>
