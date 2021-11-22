@@ -66,6 +66,8 @@ export class UBSSubmitOrderComponent extends FormBaseComponent implements OnInit
     super(router, dialog, orderService);
   }
 
+  // for test
+
   ngOnInit(): void {
     if (this.isNotification) {
       this.isDownloadDataNotification = false;
