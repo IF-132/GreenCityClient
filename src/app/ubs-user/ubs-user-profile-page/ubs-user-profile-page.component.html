@@ -5,7 +5,7 @@
         <div class="header-text">
           <h3>{{ 'ubs-client-profile.data' | translate }}</h3>
         </div>
-        <button *ngIf="isReadyForProduction" class="btn btn-ubs-outline-success edit" (click)="onEdit()" [disabled]="isEditing || isFetching">
+        <button class="btn btn-ubs-outline-success edit" (click)="onEdit()" [disabled]="isEditing || isFetching">
           {{ 'ubs-client-profile.btn.edit' | translate }}
         </button>
       </div>
