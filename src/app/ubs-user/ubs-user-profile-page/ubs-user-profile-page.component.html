@@ -5,7 +5,7 @@
         <div class="header-text">
           <h3>{{ 'ubs-client-profile.data' | translate }}</h3>
         </div>
-        <button class="btn btn-ubs-outline-success edit" (click)="onEdit()" [disabled]="isEditing || isFetching">
+        <button *ngIf="isReadyForProduction" class="btn btn-ubs-outline-success edit" (click)="onEdit()" [disabled]="isEditing || isFetching">
           {{ 'ubs-client-profile.btn.edit' | translate }}
         </button>
       </div>
@@ -90,8 +90,8 @@
               <p *ngIf="!isEditing">{{ userProfile?.addressDto.district }}</p>
             </div>
           </div>
-          <h5>{{ 'ubs-client-profile.account' | translate }}</h5>
-          <div class="account">
+          <h5 *ngIf="isReadyForProduction">{{ 'ubs-client-profile.account' | translate }}</h5>
+          <div *ngIf="isReadyForProduction" class="account">
             <span>
               <img [src]="googleIcon" alt="google bind" />
             </span>
