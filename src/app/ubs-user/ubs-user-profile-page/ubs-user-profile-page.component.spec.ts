@@ -90,9 +90,8 @@ describe('UbsUserProfilePageComponent', () => {
     tick();
     expect(component.onCancel).toHaveBeenCalled();
   }));
-  
-  // UNCOMMENT all commented tests below when functionality on back-end will be ready AND HTML tags in component.html will be uncommented also.
-
+  // UNCOMMENT all commented tests below when functionality on back-end will be ready
+  // AND HTML tags in component.html will be uncommented also.
   /*
   it('method onEdit should be calls by clicking edit button', fakeAsync(() => {
     component.isEditing = false;
@@ -104,7 +103,6 @@ describe('UbsUserProfilePageComponent', () => {
     expect(component.onEdit).toHaveBeenCalled();
   }));
   */
-  
   it('method openDeleteProfileDialog should be calls by clicking delete button', fakeAsync(() => {
     spyOn(component, 'openDeleteProfileDialog');
     const deleteButton = fixture.debugElement.query(By.css('.delete')).nativeElement;
@@ -133,7 +131,6 @@ describe('UbsUserProfilePageComponent', () => {
     const spiner = fixture.debugElement.query(By.css('app-ubs-spinner')).nativeElement;
     expect(spiner).toBeDefined();
   });
-
   /*
   it('Form should be defined by clicking on the edit button', fakeAsync(() => {
     const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement;
@@ -154,7 +151,6 @@ describe('UbsUserProfilePageComponent', () => {
     tick();
     expect(component.onSubmit).toHaveBeenCalled();
   }));
-
   /*
   it('method onSubmit should send post request with submitData', () => {
     let submitData;
@@ -174,17 +170,14 @@ describe('UbsUserProfilePageComponent', () => {
     expect(submitData).toEqual(userProfileDataMock);
     expect(clientProfileServiceMock.postDataClientProfile).toHaveBeenCalledWith(submitData);
   });
-
   describe('Testing controls for the form:', () => {
     const personalInfoControls = ['recipientName', 'recipientSurname', 'recipientEmail', 'recipientPhone'];
     const controls = ['name', 'surename', 'email', 'phone'];
-
     for (let i = 0; i < personalInfoControls.length; i++) {
       it(`should create form with ${i + 1}-st formControl: ${personalInfoControls[i]}`, () => {
         expect(component.userForm.contains(personalInfoControls[i])).toBeTruthy();
       });
     }
-
     for (let i = 0; i < personalInfoControls.length; i++) {
       it(`${controls[i]} field should be required`, () => {
         const control = component.userForm.get(personalInfoControls[i]);
