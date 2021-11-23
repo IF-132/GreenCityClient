@@ -1,7 +1,9 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { OrderService } from '../../../ubs/services/order.service';
 
 @Component({
   selector: 'app-warning-pop-up',
@@ -15,8 +17,18 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
   public popupCancel: string;
   public closeButton = './assets/img/profile/icons/cancel.svg';
   private destroyed$: ReplaySubject<any> = new ReplaySubject<any>(1);
+  public visible: boolean;
 
-  constructor(private matDialogRef: MatDialogRef<WarningPopUpComponent>, @Inject(MAT_DIALOG_DATA) public data) {}
+  constructor(
+    private matDialogRef: MatDialogRef<WarningPopUpComponent>,
+    @Inject(MAT_DIALOG_DATA) public data,
+    public router: Router,
+    public orderService: OrderService
+  ) {
+    this.orderService.getStepperFinal$.subscribe((resp) => {
+      this.visible = resp;
+    });
+  }
 
   ngOnInit() {
     this.setTitles();
@@ -50,6 +62,12 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
     }
 
     this.matDialogRef.close(reply);
+  }
+
+  cancelUBSwithoutSaving(): void {
+    this.orderService.cancelUBSwithoutSaving();
+    this.router.navigateByUrl('/ubs');
+    this.matDialogRef.close();
   }
 
   ngOnDestroy(): void {

@@ -2,8 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { WarningPopUpComponent } from '@shared/components';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
+import { OrderService } from '../../../ubs/services/order.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('WarningPopUpComponent', () => {
   let component: WarningPopUpComponent;
@@ -29,7 +32,7 @@ describe('WarningPopUpComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [WarningPopUpComponent],
-      imports: [TranslateModule.forRoot(), MatDialogModule, BrowserDynamicTestingModule],
+      imports: [TranslateModule.forRoot(), MatDialogModule, BrowserDynamicTestingModule, RouterTestingModule, HttpClientTestingModule],
       providers: [
         { provide: MatDialogRef, useValue: dialogRefStub },
         { provide: MAT_DIALOG_DATA, useValue: popupDataStub }
@@ -93,3 +96,6 @@ describe('WarningPopUpComponent', () => {
     });
   });
 });
+function getStepperFinal() {
+  throw new Error('Function not implemented.');
+}
