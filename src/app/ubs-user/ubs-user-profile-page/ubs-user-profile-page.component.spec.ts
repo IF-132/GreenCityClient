@@ -90,17 +90,21 @@ describe('UbsUserProfilePageComponent', () => {
     tick();
     expect(component.onCancel).toHaveBeenCalled();
   }));
+  
+  // UNCOMMENT all commented tests below when functionality on back-end will be ready AND HTML tags in component.html will be uncommented also.
 
-  // it('method onEdit should be calls by clicking edit button', fakeAsync(() => {
-  //   component.isEditing = false;
-  //   fixture.detectChanges();
-  //   spyOn(component, 'onEdit');
-  //   const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement;
-  //   editButton.click();
-  //   tick();
-  //   expect(component.onEdit).toHaveBeenCalled();
-  // }));
-
+  /*
+  it('method onEdit should be calls by clicking edit button', fakeAsync(() => {
+    component.isEditing = false;
+    fixture.detectChanges();
+    spyOn(component, 'onEdit');
+    const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement;
+    editButton.click();
+    tick();
+    expect(component.onEdit).toHaveBeenCalled();
+  }));
+  */
+  
   it('method openDeleteProfileDialog should be calls by clicking delete button', fakeAsync(() => {
     spyOn(component, 'openDeleteProfileDialog');
     const deleteButton = fixture.debugElement.query(By.css('.delete')).nativeElement;
@@ -130,16 +134,17 @@ describe('UbsUserProfilePageComponent', () => {
     expect(spiner).toBeDefined();
   });
 
-  // it('Form should be defined by clicking on the edit button', fakeAsync(() => {
-  //   const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement;
-  //   editButton.click();
-  //   tick();
-  //   fixture.detectChanges();
-  //   const formElement = fixture.debugElement.nativeElement.querySelector('form');
-  //   const inputElements = formElement.querySelectorAll('input');
-  //   expect(inputElements.length).toBe(10);
-  // }));
-
+  /*
+  it('Form should be defined by clicking on the edit button', fakeAsync(() => {
+    const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement;
+    editButton.click();
+    tick();
+    fixture.detectChanges();
+    const formElement = fixture.debugElement.nativeElement.querySelector('form');
+    const inputElements = formElement.querySelectorAll('input');
+    expect(inputElements.length).toBe(10);
+  }));
+  */
   it('method onSubmit has to be called by clicking submit button', fakeAsync(() => {
     component.isEditing = true;
     fixture.detectChanges();
@@ -150,41 +155,43 @@ describe('UbsUserProfilePageComponent', () => {
     expect(component.onSubmit).toHaveBeenCalled();
   }));
 
-  // it('method onSubmit should send post request with submitData', () => {
-  //   let submitData;
-  //   component.onSubmit();
-  //   submitData = {
-  //     addressDto: {
-  //       ...component.userForm.value.address,
-  //       id: userProfileDataMock.addressDto.id,
-  //       actual: userProfileDataMock.addressDto.actual,
-  //       coordinates: userProfileDataMock.addressDto.coordinates
-  //     },
-  //     recipientEmail: component.userForm.value.recipientEmail,
-  //     recipientName: component.userForm.value.recipientName,
-  //     recipientPhone: component.userForm.value.recipientPhone,
-  //     recipientSurname: component.userForm.value.recipientSurname
-  //   };
-  //   expect(submitData).toEqual(userProfileDataMock);
-  //   expect(clientProfileServiceMock.postDataClientProfile).toHaveBeenCalledWith(submitData);
-  // });
+  /*
+  it('method onSubmit should send post request with submitData', () => {
+    let submitData;
+    component.onSubmit();
+    submitData = {
+      addressDto: {
+        ...component.userForm.value.address,
+        id: userProfileDataMock.addressDto.id,
+        actual: userProfileDataMock.addressDto.actual,
+        coordinates: userProfileDataMock.addressDto.coordinates
+      },
+      recipientEmail: component.userForm.value.recipientEmail,
+      recipientName: component.userForm.value.recipientName,
+      recipientPhone: component.userForm.value.recipientPhone,
+      recipientSurname: component.userForm.value.recipientSurname
+    };
+    expect(submitData).toEqual(userProfileDataMock);
+    expect(clientProfileServiceMock.postDataClientProfile).toHaveBeenCalledWith(submitData);
+  });
 
-  // describe('Testing controls for the form:', () => {
-  //   const personalInfoControls = ['recipientName', 'recipientSurname', 'recipientEmail', 'recipientPhone'];
-  //   const controls = ['name', 'surename', 'email', 'phone'];
+  describe('Testing controls for the form:', () => {
+    const personalInfoControls = ['recipientName', 'recipientSurname', 'recipientEmail', 'recipientPhone'];
+    const controls = ['name', 'surename', 'email', 'phone'];
 
-  //   for (let i = 0; i < personalInfoControls.length; i++) {
-  //     it(`should create form with ${i + 1}-st formControl: ${personalInfoControls[i]}`, () => {
-  //       expect(component.userForm.contains(personalInfoControls[i])).toBeTruthy();
-  //     });
-  //   }
+    for (let i = 0; i < personalInfoControls.length; i++) {
+      it(`should create form with ${i + 1}-st formControl: ${personalInfoControls[i]}`, () => {
+        expect(component.userForm.contains(personalInfoControls[i])).toBeTruthy();
+      });
+    }
 
-  //   for (let i = 0; i < personalInfoControls.length; i++) {
-  //     it(`${controls[i]} field should be required`, () => {
-  //       const control = component.userForm.get(personalInfoControls[i]);
-  //       control.setValue(userProfileDataMock[personalInfoControls[i]]);
-  //       expect(control.valid).toBeTruthy();
-  //     });
-  //   }
-  // });
+    for (let i = 0; i < personalInfoControls.length; i++) {
+      it(`${controls[i]} field should be required`, () => {
+        const control = component.userForm.get(personalInfoControls[i]);
+        control.setValue(userProfileDataMock[personalInfoControls[i]]);
+        expect(control.valid).toBeTruthy();
+      });
+    }
+  });
+  */
 });
