@@ -13,8 +13,7 @@
   <div class="buttons-container">
     <button
       [ngClass]="this.router.url === '/ubs/order' ? 'ubs-secondary-global-button' : 'secondary-global-button'"
-      (click)="userReply(false)"
-    >
+      (click)="userReply(false)">
       {{ popupCancel | translate }}
     </button>
     <button [ngClass]="this.router.url === '/ubs/order' ? 'ubs-primary-global-button' : 'primary-global-button'" (click)="userReply(true)">
