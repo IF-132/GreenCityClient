@@ -56,7 +56,6 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
       this.completed = false;
     }
     this.orderService.getStepperFinal(this.completed);
-    console.log(this.completed);
   }
 
   saveDataOnLocalStorage(): void {
