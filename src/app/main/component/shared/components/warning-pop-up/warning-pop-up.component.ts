@@ -17,7 +17,7 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
   public popupCancel: string;
   public closeButton = './assets/img/profile/icons/cancel.svg';
   private destroyed$: ReplaySubject<any> = new ReplaySubject<any>(1);
-  public visible: boolean;
+  public deleteButtonVisible: boolean;
 
   constructor(
     private matDialogRef: MatDialogRef<WarningPopUpComponent>,
@@ -26,7 +26,7 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
     public orderService: OrderService
   ) {
     this.orderService.getStepperFinal$.subscribe((resp) => {
-      this.visible = resp;
+      this.deleteButtonVisible = resp;
     });
   }
 
