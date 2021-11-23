@@ -26,7 +26,8 @@ export class UbsUserOrdersListComponent {
     this.orders.forEach((order) => {
       if (order.id === id) {
         order.extend = !order.extend;
-        this.current = id;
+      } else {
+        order.extend = false;
       }
     });
   }
