@@ -17,6 +17,8 @@ export class EmployeeFormComponent implements OnInit {
   receivingStations;
   namePattern = '[A-ZА-Я]*[a-zа-я]{1,20}';
   phoneMask = '{+38} (000) 00 000 00';
+  imageIsTooLarge = false;
+  invalidImageFormat = false;
   private maxImageSize = 10485760;
   public isWarning = false;
   public isUploading = false;
@@ -171,6 +173,9 @@ export class EmployeeFormComponent implements OnInit {
 
   private transferFile(imageFile: File): void {
     this.isWarning = this.showWarning(imageFile);
+
+    this.imageIsTooLarge = imageFile.size > this.maxImageSize;
+    this.invalidImageFormat = imageFile.type !== 'image/jpeg' && imageFile.type !== 'image/png';
 
     if (!this.isWarning) {
       const reader: FileReader = new FileReader();

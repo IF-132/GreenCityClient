@@ -14,8 +14,8 @@
         "
         class="text-danger"
       >
-        <small *ngIf="employeeForm.controls['firstName'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
-        <small *ngIf="employeeForm.controls['firstName'].errors.pattern">{{ 'ubs-employee.name-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['firstName'].errors.required">{{ 'ubs-employee.required-warning' | translate }}</small>
+        <small *ngIf="employeeForm.controls['firstName'].errors.pattern">{{ 'ubs-employee.name-warning' | translate }}</small>
       </div>
     </div>
     <div class="form-group">
@@ -28,8 +28,8 @@
         "
         class="text-danger"
       >
-        <small *ngIf="employeeForm.controls['lastName'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
-        <small *ngIf="employeeForm.controls['lastName'].errors.pattern">{{ 'ubs-employee.name-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['lastName'].errors.required">{{ 'ubs-employee.required-warning' | translate }}</small>
+        <small *ngIf="employeeForm.controls['lastName'].errors.pattern">{{ 'ubs-employee.name-warning' | translate }}</small>
       </div>
     </div>
     <div class="form-group">
@@ -42,7 +42,7 @@
         "
         class="text-danger"
       >
-        <small *ngIf="employeeForm.controls['phoneNumber'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['phoneNumber'].errors.required">{{ 'ubs-employee.required-warning' | translate }}</small>
       </div>
     </div>
     <div class="form-group">
@@ -52,8 +52,8 @@
         *ngIf="employeeForm.controls['email'].invalid && (employeeForm.controls['email'].dirty || employeeForm.controls['email'].touched)"
         class="text-danger"
       >
-        <small *ngIf="employeeForm.controls['email'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
-        <small *ngIf="employeeForm.controls['email'].errors.email">{{ 'ubs-employee.email-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['email'].errors.required">{{ 'ubs-employee.required-warning' | translate }}</small>
+        <small *ngIf="employeeForm.controls['email'].errors.email">{{ 'ubs-employee.email-warning' | translate }}</small>
       </div>
     </div>
     <span class="group-title position-title">{{ 'ubs-employee.position' | translate }}</span>
@@ -90,6 +90,9 @@
         <input class="file-input" id="file-input" type="file" (change)="treatFileInput($event)" />
       </div>
     </div>
+    <small *ngIf="imageIsTooLarge" class="text-danger">{{ 'ubs-employee.image-large-warning' | translate }}</small>
+    <br />
+    <small *ngIf="invalidImageFormat" class="text-danger">{{ 'ubs-employee.image-format-warning' | translate }}</small>
     <ng-template #currentImageBlock>
       <div class="image-input current-image">
         <div class="avatar-edit-head">
