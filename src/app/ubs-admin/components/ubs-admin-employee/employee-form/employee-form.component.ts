@@ -50,7 +50,7 @@ export class EmployeeFormComponent implements OnInit {
       firstName: [this.data?.firstName ?? '', Validators.required],
       lastName: [this.data?.lastName ?? '', Validators.required],
       phoneNumber: [this.data?.phoneNumber ?? '', Validators.required],
-      email: [this.data?.email ?? '']
+      email: [this.data?.email ?? '', Validators.required]
     });
     this.employeePositions = this.data?.employeePositions ?? [];
     this.receivingStations = this.data?.receivingStations ?? [];

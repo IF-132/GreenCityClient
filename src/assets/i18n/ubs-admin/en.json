@@ -319,7 +319,7 @@
     "name": "Name*",
     "surname": "Surname*",
     "phone-number": "Phone number*",
-    "email": "Email",
+    "email": "Email*",
     "position": "Position*",
     "receiving-station": "Receiving station*",
     "image-input": "Image",
