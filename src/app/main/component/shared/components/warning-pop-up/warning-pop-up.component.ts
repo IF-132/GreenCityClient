@@ -25,8 +25,8 @@ export class WarningPopUpComponent implements OnInit, OnDestroy {
     public orderService: OrderService,
     private matDialogRef: MatDialogRef<WarningPopUpComponent>
   ) {
-    this.orderService.getStepperFinal$.subscribe((resp) => {
-      this.deleteButtonVisible = resp;
+    this.orderService.getStepperFinal$.subscribe((stepperPosition) => {
+      this.deleteButtonVisible = stepperPosition;
     });
   }
 
