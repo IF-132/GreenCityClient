@@ -15,6 +15,7 @@ export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
   employeePositions;
   receivingStations;
+  namePattern = '[A-ZА-Я]*[a-zа-я]{1,20}';
   phoneMask = '{+38} (000) 00 000 00';
   private maxImageSize = 10485760;
   public isWarning = false;
@@ -47,10 +48,10 @@ export class EmployeeFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Page
   ) {
     this.employeeForm = this.fb.group({
-      firstName: [this.data?.firstName ?? '', Validators.required],
-      lastName: [this.data?.lastName ?? '', Validators.required],
+      firstName: [this.data?.firstName ?? '', [Validators.required, Validators.pattern(this.namePattern)]],
+      lastName: [this.data?.lastName ?? '', [Validators.required, Validators.pattern(this.namePattern)]],
       phoneNumber: [this.data?.phoneNumber ?? '', Validators.required],
-      email: [this.data?.email ?? '', Validators.required]
+      email: [this.data?.email ?? '', [Validators.required, Validators.email]]
     });
     this.employeePositions = this.data?.employeePositions ?? [];
     this.receivingStations = this.data?.receivingStations ?? [];

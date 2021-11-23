@@ -7,18 +7,54 @@
     <div class="form-group">
       <label class="group-title">{{ 'ubs-employee.name' | translate }}</label>
       <input formControlName="firstName" />
+      <div
+        *ngIf="
+          employeeForm.controls['firstName'].invalid &&
+          (employeeForm.controls['firstName'].dirty || employeeForm.controls['firstName'].touched)
+        "
+        class="text-danger"
+      >
+        <small *ngIf="employeeForm.controls['firstName'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['firstName'].errors.pattern">{{ 'ubs-employee.name-error' | translate }}</small>
+      </div>
     </div>
     <div class="form-group">
       <label class="group-title">{{ 'ubs-employee.surname' | translate }}</label>
       <input formControlName="lastName" />
+      <div
+        *ngIf="
+          employeeForm.controls['lastName'].invalid &&
+          (employeeForm.controls['lastName'].dirty || employeeForm.controls['lastName'].touched)
+        "
+        class="text-danger"
+      >
+        <small *ngIf="employeeForm.controls['lastName'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['lastName'].errors.pattern">{{ 'ubs-employee.name-error' | translate }}</small>
+      </div>
     </div>
     <div class="form-group">
       <label class="group-title">{{ 'ubs-employee.phone-number' | translate }}</label>
       <input formControlName="phoneNumber" placeholder="+380" [imask]="{ mask: phoneMask }" [unmask]="true" />
+      <div
+        *ngIf="
+          employeeForm.controls['phoneNumber'].invalid &&
+          (employeeForm.controls['phoneNumber'].dirty || employeeForm.controls['phoneNumber'].touched)
+        "
+        class="text-danger"
+      >
+        <small *ngIf="employeeForm.controls['phoneNumber'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
+      </div>
     </div>
     <div class="form-group">
       <label class="group-title">{{ 'ubs-employee.email' | translate }}</label>
       <input formControlName="email" />
+      <div
+        *ngIf="employeeForm.controls['email'].invalid && (employeeForm.controls['email'].dirty || employeeForm.controls['email'].touched)"
+        class="text-danger"
+      >
+        <small *ngIf="employeeForm.controls['email'].errors.required">{{ 'ubs-employee.required-error' | translate }}</small>
+        <small *ngIf="employeeForm.controls['email'].errors.email">{{ 'ubs-employee.email-error' | translate }}</small>
+      </div>
     </div>
     <span class="group-title position-title">{{ 'ubs-employee.position' | translate }}</span>
     <div class="checkbox-section-role">
