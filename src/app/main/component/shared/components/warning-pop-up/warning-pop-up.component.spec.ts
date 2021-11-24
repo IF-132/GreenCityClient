@@ -94,4 +94,11 @@ describe('WarningPopUpComponent', () => {
       expect(completeSpy).toHaveBeenCalled();
     });
   });
+
+  it('should execute cancelUBSwithoutSaving and closepop-up window', () => {
+    // @ts-ignore
+    const spy = spyOn(component.orderService, 'cancelUBSwithoutSaving');
+    component.cancelUBSwithoutSaving();
+    expect(spy).toHaveBeenCalled();
+  });
 });

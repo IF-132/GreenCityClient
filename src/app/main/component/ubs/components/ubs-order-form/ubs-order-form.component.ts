@@ -50,7 +50,7 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
 
   ngDoCheck(): void {
     this.completed = this.stepper?.selected.state === 'finalStep';
-    this.orderService.getStepperFinal(this.completed);
+    this.orderService.setStepperFinal(this.completed);
   }
 
   saveDataOnLocalStorage(): void {
