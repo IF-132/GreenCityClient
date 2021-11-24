@@ -155,7 +155,7 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
     this.addAddressForm.get('street').setValue(streetName);
     this.setDistrict(event);
     this.addAddressForm.get('district').setValue(this.region);
-    this.districtDisabled = this.region ? true : false;
+    this.districtDisabled = !!this.region;
     this.selectedDistrict = true;
   }
 
