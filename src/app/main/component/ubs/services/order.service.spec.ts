@@ -76,7 +76,6 @@ describe('OrderService', () => {
     orderDetails: null,
     personalData: null
   };
-  const setStepperFinalSubjectMock = new BehaviorSubject<boolean>(true);
 
   const baseLink = 'https://greencity-ubs.azurewebsites.net/ubs/';
 
@@ -205,14 +204,5 @@ describe('OrderService', () => {
     spyOn(service, 'processLiqPayOrder');
     service.getLiqPayForm();
     expect(service.processLiqPayOrder).toHaveBeenCalled();
-  });
-
-  it('method getStepperFinal sould return true', () => {
-    spyOn(service, 'setStepperFinal');
-    service.setStepperFinal(true);
-    setStepperFinalSubjectMock.next(true);
-    setStepperFinalSubjectMock.subscribe((data) => {
-      expect(data).toBeTruthy();
-    });
   });
 });

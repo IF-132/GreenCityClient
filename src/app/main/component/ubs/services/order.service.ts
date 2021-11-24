@@ -19,9 +19,7 @@ export class OrderService {
   currentAddress = new Subject();
   isStepperFinalSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private shareFormService: UBSOrderFormService, private localStorageService: LocalStorageService) {
-    this.isStepperFinalSubject.asObservable();
-  }
+  constructor(private http: HttpClient, private shareFormService: UBSOrderFormService, private localStorageService: LocalStorageService) {}
 
   getOrders(): Observable<any> {
     const ubsOrderData = this.localStorageService.getUbsOrderData();
