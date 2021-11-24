@@ -38,7 +38,7 @@ export class UbsBaseSidebarComponent implements AfterViewInit, OnDestroy {
       this.drawer.toggle();
       this.stopClick = true;
       setTimeout(() => {
-        this.sideBarIcons.nativeElement.style.zIndex = '0';
+        this.sideBarIcons.nativeElement.style.zIndex = '2';
         this.sidebarContainer.nativeElement.style.marginLeft = '25px';
         this.stopClick = false;
       }, 350);
@@ -70,8 +70,12 @@ export class UbsBaseSidebarComponent implements AfterViewInit, OnDestroy {
         if (this.drawer) {
           if (result.matches) {
             this.drawer.mode = 'over';
+            this.drawer.opened = false;
+            this.sideBarIcons.nativeElement.style.zIndex = '2';
           } else {
             this.drawer.mode = 'side';
+            this.drawer.opened = true;
+            this.sideBarIcons.nativeElement.style.zIndex = '1';
           }
         }
       });
