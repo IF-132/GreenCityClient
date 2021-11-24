@@ -21,11 +21,8 @@
   <div class="col-md-4 col-sm-4 form-group">
     <label>{{ 'personal-info.pop-up-district' | translate }}</label>
     <select formControlName="district" class="shadow-none form-control" [attr.disabled]="districtDisabled ? true : null">
-      <!-- <option selected>{{region}}</option> -->
-      <!-- <option selected >{{ region.length > 1 ? region : ('personal-info.pop-up-enter-you-location' | translate) }}</option> -->
       <option selected disabled hidden>{{ 'personal-info.pop-up-enter-you-location' | translate }}</option>
       <option [selected]="selectedDistrict">{{ !!region ? region : ('personal-info.pop-up-enter-you-location' | translate) }}</option>
-      <!-- <option *ngFor="let district of districts">{{ district }}</option> -->
     </select>
     <div class="validation" *ngIf="district.invalid && addAddressForm.get('district').touched">
       <app-ubs-input-error [formElement]="district" [controlName]="'district'"></app-ubs-input-error>
@@ -34,7 +31,6 @@
   <div class="col-lg-6 col-md-12 col-sm-12 form-group">
     <label>{{ 'personal-info.pop-up-street' | translate }}</label>
     <input
-      #street
       id="auto"
       ngx-google-places-autocomplete
       formControlName="street"
