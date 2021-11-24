@@ -25,10 +25,10 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
   @ViewChild(MatHorizontalStepper) stepper: MatHorizontalStepper;
 
   constructor(
+    public orderService: OrderService,
     private cdr: ChangeDetectorRef,
     private shareFormService: UBSOrderFormService,
-    private localStorageService: LocalStorageService,
-    public orderService: OrderService
+    private localStorageService: LocalStorageService
   ) {}
 
   @HostListener('window:beforeunload') onClose() {

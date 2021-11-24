@@ -53,10 +53,10 @@
 .red {
   background: var(--ubs-error-ligh-red);
   margin-right: 0;
-}
 
-.red:hover {
-  background: var(--secondary-dark-grey);
+  &:hover {
+    background: var(--secondary-dark-grey);
+  }
 }
 
 .ubs-primary-global-button,

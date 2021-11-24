@@ -17,11 +17,10 @@ export class OrderService {
   locationSubject = new Subject();
   locationSub = new Subject();
   currentAddress = new Subject();
-  public getStepperFinal$: Observable<boolean>;
-  public getStepperFinalSubject = new BehaviorSubject<boolean>(false);
+  getStepperFinalSubject = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private shareFormService: UBSOrderFormService, private localStorageService: LocalStorageService) {
-    this.getStepperFinal$ = this.getStepperFinalSubject.asObservable();
+    this.getStepperFinalSubject.asObservable();
   }
 
   getOrders(): Observable<any> {
