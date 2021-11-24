@@ -15,7 +15,7 @@ export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
   employeePositions;
   receivingStations;
-  namePattern = '[A-ZА-Я]*[a-zа-я]{1,20}';
+  namePattern = /^[\p{L} ,.'-]+$/u;
   phoneMask = '{+38} (000) 00 000 00';
   imageIsTooLarge = false;
   invalidImageFormat = false;
