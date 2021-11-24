@@ -20,9 +20,9 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
   updatedAddresses: Address[];
   addAddressForm: FormGroup;
   newAddress: Address;
-  region = '';
+  selectedDistrict = true;
+  region: string;
   districtDisabled = true;
-  nextDisabled = true;
   isDisabled = false;
   streetPattern = /^[A-Za-zА-Яа-яїЇіІєЄёЁ.\'\-\ \\]+[A-Za-zА-Яа-яїЇіІєЄёЁ0-9.\'\-\ \\]*$/;
   corpusPattern = /^[A-Za-zА-Яа-яїЇіІєЄёЁ0-9]{1,4}$/;
@@ -31,20 +31,22 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
   private destroy: Subject<boolean> = new Subject<boolean>();
 
   cities = [
-    { cityName: 'Kyiv', northLat: 50.59079800991073, southLat: 50.21327301525928, eastLng: 30.82594104187906, westLng: 30.23944009690609 }
-  ];
-
-  regions = [
-    'Голосіївський',
-    'Дарницький',
-    'Деснянський',
-    'Дніпровський',
-    'Оболонський',
-    'Печерський',
-    'Подільський',
-    'Святошинський',
-    'Солом`янський',
-    'Шевченківський'
+    { cityName: 'Київ', northLat: 50.59079800991073, southLat: 50.21327301525928, eastLng: 30.82594104187906, westLng: 30.23944009690609 },
+    {
+      cityName: 'Бориспіль',
+      northLat: 50.41243645196568,
+      southLat: 50.32682523512815,
+      eastLng: 31.00469615839837,
+      westLng: 30.91680312115698
+    },
+    { cityName: 'Бровари', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Біла Церква', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Бородянка', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Миронівка', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Обухів', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Пилиповичі', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Тараща', northLat: '', southLat: '', eastLng: '', westLng: '' },
+    { cityName: 'Яготин', northLat: '', southLat: '', eastLng: '', westLng: '' }
   ];
 
   constructor(
@@ -104,11 +106,12 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
       longitude: [this.data.edit ? this.data.address.longitude : ''],
       latitude: [this.data.edit ? this.data.address.latitude : ''],
       id: [this.data.edit ? this.data.address.id : 0],
-      actual: true
+      actual: true,
+      region: 'Київська область'
     });
 
     // TODO: Must be removed if multi-city feature need to be implemented
-    this.onCitySelected('Kiev');
+    this.onCitySelected('Kiyv');
   }
 
   onCitySelected(citySelected: string) {
@@ -126,7 +129,7 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
     this.options = {
       bounds: this.cityBounds,
       strictBounds: true,
-      types: ['address'],
+      types: ['geocode'],
       componentRestrictions: { country: 'UA' }
     };
   }
@@ -137,11 +140,13 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
   }
 
   setDistrict(event: any) {
+    this.region = null;
     const getDistrict = event.address_components.filter((item) => item.long_name.includes('район'))[0];
     if (getDistrict) {
       this.region = getDistrict.long_name.split(' ')[0];
     } else {
-      this.region = event.vicinity.split(' ')[0];
+      const district = event.address_components.filter((item) => item.long_name.includes('міськрада'))[0];
+      this.region = district.long_name.split(' ')[0].slice(0, -1) + 'ий';
     }
   }
 
@@ -150,24 +155,24 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
     this.addAddressForm.get('street').setValue(streetName);
     this.setDistrict(event);
     this.addAddressForm.get('district').setValue(this.region);
-    this.nextDisabled = false;
-    this.districtDisabled = event.address_components[2].long_name.split(' ')[1] === 'район' ? true : false;
+    this.districtDisabled = this.region ? true : false;
+    this.selectedDistrict = true;
+  }
+
+  setSelectedDistrict(): void {
+    this.selectedDistrict = false;
   }
 
   onDistrictSelected(event): void {
+    this.selectedDistrict = true;
     this.onLocationSelected(event);
-    this.setDistrict(event);
-    this.addAddressForm.get('district').setValue(this.region);
-    this.districtDisabled = true;
-    this.nextDisabled = false;
+    this.districtDisabled = false;
     this.onAutocompleteSelected(event);
   }
 
   onChange(): void {
-    this.region = null;
     this.addAddressForm.get('district').setValue(this.region);
-    this.districtDisabled = false;
-    this.nextDisabled = true;
+    this.selectedDistrict = false;
   }
 
   onNoClick(): void {
@@ -175,6 +180,7 @@ export class UBSAddAddressPopUpComponent implements OnInit, OnDestroy {
   }
 
   addAdress() {
+    console.log(this.addAddressForm.value);
     this.isDisabled = true;
     this.orderService
       .addAdress(this.addAddressForm.value)
