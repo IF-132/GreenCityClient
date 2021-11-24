@@ -44,10 +44,12 @@ export class UbsBaseSidebarComponent implements AfterViewInit, OnDestroy {
       }, 350);
       this.openClose = false;
     } else {
-      this.drawer.toggle();
-      this.sidebarContainer.nativeElement.style.marginLeft = '85px';
-      this.sideBarIcons.nativeElement.style.zIndex = '4';
-      this.openClose = true;
+      if (!this.drawer.opened) {
+        this.drawer.toggle();
+        this.sidebarContainer.nativeElement.style.marginLeft = '85px';
+        this.sideBarIcons.nativeElement.style.zIndex = '4';
+        this.openClose = true;
+      }
     }
   }
 

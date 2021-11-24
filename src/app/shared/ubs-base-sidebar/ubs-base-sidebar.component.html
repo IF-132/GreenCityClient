@@ -7,9 +7,9 @@
     </ul>
   </div>
   <mat-drawer-container class="sidebar" autosize>
-    <mat-drawer #drawer class="sidebar-slider" mode="side" opened disableClose="false">
+    <mat-drawer #drawer class="sidebar-slider" mode="side" opened="true" disableClose="false">
       <ul class="sidebar-list">
-        <li class="sidebar-list-item" *ngFor="let listItem of listElements" [routerLink]="listItem.routerLink">
+        <li class="sidebar-list-item" *ngFor="let listItem of listElements" [routerLink]="listItem.routerLink" (click)="toggleSideBar()">
           <img
             class="sidebar-list-item-icon"
             src="{{
