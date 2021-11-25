@@ -6,6 +6,7 @@ import { UBSPersonalInformationComponent } from '../ubs-personal-information/ubs
 import { UBSOrderDetailsComponent } from '../ubs-order-details/ubs-order-details.component';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { UBSOrderFormService } from './../../services/ubs-order-form.service';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-ubs-order-form',
@@ -24,6 +25,7 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
   @ViewChild(MatHorizontalStepper) stepper: MatHorizontalStepper;
 
   constructor(
+    public orderService: OrderService,
     private cdr: ChangeDetectorRef,
     private shareFormService: UBSOrderFormService,
     private localStorageService: LocalStorageService
@@ -47,9 +49,8 @@ export class UBSOrderFormComponent implements OnInit, AfterViewInit, DoCheck, On
   }
 
   ngDoCheck(): void {
-    if (this.stepper?.selected.state === 'finalStep') {
-      this.completed = true;
-    }
+    this.completed = this.stepper?.selected.state === 'finalStep';
+    this.orderService.setStepperFinal(this.completed);
   }
 
   saveDataOnLocalStorage(): void {

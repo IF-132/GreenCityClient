@@ -5,6 +5,7 @@ import { UBSOrderFormComponent } from './ubs-order-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatStepperModule } from '@angular/material/stepper';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UBSOrderFormComponent ', () => {
   let component: UBSOrderFormComponent;
@@ -12,7 +13,14 @@ describe('UBSOrderFormComponent ', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule, MatStepperModule, TranslateModule.forRoot(), BrowserAnimationsModule],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatStepperModule,
+        TranslateModule.forRoot(),
+        BrowserAnimationsModule,
+        HttpClientTestingModule
+      ],
       declarations: [UBSOrderFormComponent]
     }).compileComponents();
   }));
