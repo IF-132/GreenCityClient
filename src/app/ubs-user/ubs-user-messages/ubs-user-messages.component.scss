@@ -223,3 +223,17 @@
 ::ng-deep .mat-progress-bar-buffer {
   background: #bfbfbf;
 }
+
+@media (max-width: 990px) {
+  .wrapper {
+    width: 110%;
+    height: 100vh;
+    position: relative;
+    margin-left: 0;
+    padding: 0 20px;
+    line-height: 24px;
+    color: var(--ubs-primary-black);
+    font-family: var(--primary-font);
+    background-color: var(--after-primary-light-grey);
+  }
+}
