@@ -78,7 +78,7 @@ describe('EmployeeFormComponent', () => {
 
   it('First name field should be valid when user input letters, spaces, dashes and apostrophe', () => {
     const firstName = component.employeeForm.controls.firstName;
-    firstName.setValue("Conan'O-Brian Lionel");
+    firstName.setValue('Conan\'O-Brian Lionel');
     expect(firstName.valid).toBeTruthy();
   });
 
@@ -123,7 +123,7 @@ describe('EmployeeFormComponent', () => {
 
   it('Last name field should be valid when user input letters, spaces, dashes and apostrophe', () => {
     const lastName = component.employeeForm.controls.lastName;
-    lastName.setValue("Mortimer'D Chester-great-son");
+    lastName.setValue('Mortimer\'D Chester-great-son');
     expect(lastName.valid).toBeTruthy();
   });
 
