@@ -20,6 +20,7 @@ export class EmployeeFormComponent implements OnInit {
   imageIsTooLarge = false;
   invalidImageFormat = false;
   private maxImageSize = 10485760;
+  private validImageFormats = ['image/jpeg', 'image/png'];
   public isWarning = false;
   public isUploading = false;
   imageURL: string;
@@ -52,7 +53,7 @@ export class EmployeeFormComponent implements OnInit {
     this.employeeForm = this.fb.group({
       firstName: [this.data?.firstName ?? '', [Validators.required, Validators.pattern(this.namePattern)]],
       lastName: [this.data?.lastName ?? '', [Validators.required, Validators.pattern(this.namePattern)]],
-      phoneNumber: [this.data?.phoneNumber ?? '', Validators.required],
+      phoneNumber: [this.data?.phoneNumber ?? '', [Validators.required, Validators.minLength(13)]],
       email: [this.data?.email ?? '', [Validators.required, Validators.email]]
     });
     this.employeePositions = this.data?.employeePositions ?? [];
@@ -175,7 +176,7 @@ export class EmployeeFormComponent implements OnInit {
     this.isWarning = this.showWarning(imageFile);
 
     this.imageIsTooLarge = imageFile.size > this.maxImageSize;
-    this.invalidImageFormat = imageFile.type !== 'image/jpeg' && imageFile.type !== 'image/png';
+    this.invalidImageFormat = !this.validImageFormats.includes(imageFile.type);
 
     if (!this.isWarning) {
       const reader: FileReader = new FileReader();

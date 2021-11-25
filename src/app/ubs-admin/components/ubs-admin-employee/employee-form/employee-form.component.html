@@ -43,6 +43,7 @@
         class="text-danger"
       >
         <small *ngIf="employeeForm.controls['phoneNumber'].errors.required">{{ 'ubs-employee.required-warning' | translate }}</small>
+        <small *ngIf="employeeForm.controls['phoneNumber'].errors.minlength">{{ 'ubs-employee.phone-short-warning' | translate }}</small>
       </div>
     </div>
     <div class="form-group">

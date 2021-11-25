@@ -319,6 +319,7 @@
     "email": "Email*",
     "required-warning": "Поле є обов’язковим",
     "name-warning": "Поле може містити лише літери",
+    "phone-short-warning": "Номер телефону повинен містити 12 цифр",
     "email-warning": "Email не вірний",
     "image-large-warning": "Файл зображення є завеликим",
     "image-format-warning": "Формат файлу повинен бути jpeg або png",

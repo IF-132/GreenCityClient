@@ -29,38 +29,52 @@ describe('EmployeeFormComponent', () => {
     fixture.detectChanges();
   });
 
+  function fillAllFields(firstNameValue: string, lastNameValue: string, phoneNumberValue: string, emailValue: string) {
+    const firstName = component.employeeForm.controls.firstName;
+    firstName.setValue(firstNameValue);
+    const lastName = component.employeeForm.controls.lastName;
+    lastName.setValue(lastNameValue);
+    const phoneNumber = component.employeeForm.controls.phoneNumber;
+    phoneNumber.setValue(phoneNumberValue);
+    const email = component.employeeForm.controls.email;
+    email.setValue(emailValue);
+  }
+
+  const validValues = {
+    name: 'test',
+    phone: '+380111111111',
+    mail: 'test@mail.com'
+  };
+
   it('Employee form should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Employee form should be invalid when empty', () => {
+  it('Employee form should be invalid when all fields are empty', () => {
+    fillAllFields('', '', '', '');
     expect(component.employeeForm.valid).toBeFalsy();
   });
 
-  it('First name field should be invalid when empty', () => {
-    const firstName = component.employeeForm.controls.firstName;
-    expect(firstName.valid).toBeFalsy();
+  it('Form should be invalid when First name field is empty', () => {
+    fillAllFields('', validValues.name, validValues.phone, validValues.mail);
+    expect(component.employeeForm.valid).toBeFalsy();
   });
 
   it('First name field should be invalid when user input numbers', () => {
     const firstName = component.employeeForm.controls.firstName;
-    let errors = {};
     firstName.setValue('345');
-    errors = firstName.errors || {};
-    expect(Object.keys(errors)).toContain('pattern');
+    expect(firstName.errors.pattern).toBeTruthy();
   });
 
   it('First name field should be invalid when user input punctuation marks like &?!', () => {
     const firstName = component.employeeForm.controls.firstName;
-    let errors = {};
     firstName.setValue('$&?!');
-    errors = firstName.errors || {};
-    expect(Object.keys(errors)).toContain('pattern');
+    expect(firstName.errors.pattern).toBeTruthy();
   });
 
   it('First name field should be valid when user input letters', () => {
     const firstName = component.employeeForm.controls.firstName;
-    firstName.setValue('test');
+    firstName.setValue('Test');
     expect(firstName.valid).toBeTruthy();
   });
 
@@ -82,30 +96,26 @@ describe('EmployeeFormComponent', () => {
     expect(firstName.valid).toBeTruthy();
   });
 
-  it('Last name field should be invalid when empty', () => {
-    const lastName = component.employeeForm.controls.lastName;
-    expect(lastName.valid).toBeFalsy();
+  it('Form should be invalid when Last name field is empty', () => {
+    fillAllFields(validValues.name, '', validValues.phone, validValues.mail);
+    expect(component.employeeForm.valid).toBeFalsy();
   });
 
   it('Last name field should be invalid when user input numbers', () => {
     const lastName = component.employeeForm.controls.lastName;
-    let errors = {};
     lastName.setValue('678');
-    errors = lastName.errors || {};
-    expect(Object.keys(errors)).toContain('pattern');
+    expect(lastName.errors.pattern).toBeTruthy();
   });
 
   it('Last name field should be invalid when user input punctuation marks like &?!', () => {
     const lastName = component.employeeForm.controls.lastName;
-    let errors = {};
     lastName.setValue('$&?!');
-    errors = lastName.errors || {};
-    expect(Object.keys(errors)).toContain('pattern');
+    expect(lastName.errors.pattern).toBeTruthy();
   });
 
   it('Last name field should be valid when user input letters', () => {
     const lastName = component.employeeForm.controls.lastName;
-    lastName.setValue('test');
+    lastName.setValue('Test');
     expect(lastName.valid).toBeTruthy();
   });
 
@@ -127,26 +137,25 @@ describe('EmployeeFormComponent', () => {
     expect(lastName.valid).toBeTruthy();
   });
 
-  it('Phone number field should be invalid when empty', () => {
-    const phoneNumber = component.employeeForm.controls.phoneNumber;
-    expect(phoneNumber.valid).toBeFalsy();
+  it('Form should be invalid when Phone number field is empty', () => {
+    fillAllFields(validValues.name, validValues.name, '', validValues.mail);
+    expect(component.employeeForm.valid).toBeFalsy();
   });
 
   it('Phone number field should be valid with normal number', () => {
     const phoneNumber = component.employeeForm.controls.phoneNumber;
-    phoneNumber.setValue('+380111111111');
+    phoneNumber.setValue(validValues.phone);
     expect(phoneNumber.valid).toBeTruthy();
   });
 
-  it('Form is invalid when phone number field value is too short', () => {
-    const phoneNumber = component.employeeForm.controls.phoneNumber;
-    phoneNumber.setValue('+3801111');
+  it('Form should be invalid when phone number field value is too short', () => {
+    fillAllFields(validValues.name, validValues.name, '+3801111', validValues.mail);
     expect(component.employeeForm.invalid).toBeTruthy();
   });
 
-  it('Email field should be invalid when empty', () => {
-    const email = component.employeeForm.controls.email;
-    expect(email.valid).toBeFalsy();
+  it('Form should be invalid when Email field is empty', () => {
+    fillAllFields(validValues.name, validValues.name, validValues.phone, '');
+    expect(component.employeeForm.valid).toBeFalsy();
   });
 
   it('Email field should be invalid without @ in the middle', () => {
@@ -157,19 +166,12 @@ describe('EmployeeFormComponent', () => {
 
   it('Email field should be valid with normal mail', () => {
     const email = component.employeeForm.controls.email;
-    email.setValue('test@mail.com');
+    email.setValue(validValues.mail);
     expect(email.valid).toBeTruthy();
   });
 
   it('Form should be valid with all required fields filled (except employee position and receiving station)', () => {
-    const firstName = component.employeeForm.controls.firstName;
-    firstName.setValue('test');
-    const lastName = component.employeeForm.controls.lastName;
-    lastName.setValue('test');
-    const phoneNumber = component.employeeForm.controls.phoneNumber;
-    phoneNumber.setValue('+380111111111');
-    const email = component.employeeForm.controls.email;
-    email.setValue('test@mail.com');
+    fillAllFields(validValues.name, validValues.name, validValues.phone, validValues.mail);
     expect(component.employeeForm.valid).toBeTruthy();
   });
 });

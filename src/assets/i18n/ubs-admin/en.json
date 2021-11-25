@@ -322,6 +322,7 @@
     "email": "Email*",
     "required-warning": "Field is required",
     "name-warning": "Field can only contain letters",
+    "phone-short-warning": "Phone number must contain 12 digits",
     "email-warning": "Email is invalid",
     "image-large-warning": "Image file is too large",
     "image-format-warning": "File format must be jpeg or png",
