@@ -2,7 +2,7 @@
   <div class="sidebar-icons" #sideBarIcons>
     <ul class="sidebar-list">
       <li class="sidebar-list-item" (click)="toggleSideBar()" *ngFor="let listItem of listElements">
-        <img class="sidebar-list-item-icon" src="{{ listItem.link }}" alt="sidebar list item icon" />
+        <img class="sidebar-list-item-icon" [src]="listItem.link" alt="sidebar list item icon" />
       </li>
     </ul>
   </div>
@@ -12,9 +12,9 @@
         <li class="sidebar-list-item" *ngFor="let listItem of listElements" [routerLink]="listItem.routerLink" (click)="toggleSideBar()">
           <img
             class="sidebar-list-item-icon"
-            src="{{
+            [src]="
               listItem.link === bellsNoneNotification && serviceUserMessages.countOfNoReadeMessages ? bellsNotification : listItem.link
-            }}"
+            "
             alt="sidebar list item icon"
           />
           <a class="sidebar-list-item-link" [routerLink]="listItem.routerLink">{{ listItem.name | translate }}</a>
