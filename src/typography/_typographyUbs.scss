@@ -1,2 +1,46 @@
 @import 'colorsUbs';
 @import 'fontsUbs';
+
+.ubs-primary-global-button {
+  border: none;
+  border-radius: 3px;
+  background: var(--ubs-button-light-green);
+  font-family: var(--primary-font);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.ubs-primary-global-button:active {
+  background: var(--ubs-button-light-green);
+}
+
+.ubs-primary-global-button:hover,
+.ubs-primary-global-button:disabled {
+  background-color: var(--primary-grey);
+  border: 1px solid var(--primary-grey);
+}
+
+.ubs-secondary-global-button {
+  border: 1px solid var(--ubs-button-light-green);
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-family: var(--primary-font);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--ubs-button-light-green);
+  text-align: center;
+}
+
+.ubs-secondary-global-button:hover,
+.ubs-secondary-global-button:active {
+  border: 1px solid var(--primary-grey);
+  line-height: 22px;
+  color: var(--primary-grey);
+}

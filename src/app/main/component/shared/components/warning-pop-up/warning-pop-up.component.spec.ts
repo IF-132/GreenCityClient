@@ -4,6 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { of } from 'rxjs';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('WarningPopUpComponent', () => {
   let component: WarningPopUpComponent;
@@ -29,7 +31,7 @@ describe('WarningPopUpComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [WarningPopUpComponent],
-      imports: [TranslateModule.forRoot(), MatDialogModule, BrowserDynamicTestingModule],
+      imports: [TranslateModule.forRoot(), MatDialogModule, BrowserDynamicTestingModule, RouterTestingModule, HttpClientTestingModule],
       providers: [
         { provide: MatDialogRef, useValue: dialogRefStub },
         { provide: MAT_DIALOG_DATA, useValue: popupDataStub }
@@ -91,5 +93,12 @@ describe('WarningPopUpComponent', () => {
       expect(nextSpy).toHaveBeenCalled();
       expect(completeSpy).toHaveBeenCalled();
     });
+  });
+
+  it('should execute cancelUBSwithoutSaving and closepop-up window', () => {
+    // @ts-ignore
+    const spy = spyOn(component.orderService, 'cancelUBSwithoutSaving');
+    component.cancelUBSwithoutSaving();
+    expect(spy).toHaveBeenCalled();
   });
 });
