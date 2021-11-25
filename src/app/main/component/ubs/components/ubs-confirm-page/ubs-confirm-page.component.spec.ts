@@ -7,6 +7,7 @@ import { JwtService } from '@global-service/jwt/jwt.service';
 import { UbsConfirmPageComponent } from './ubs-confirm-page.component';
 import { MatSnackBarComponent } from '@global-errors/mat-snack-bar/mat-snack-bar.component';
 import { UBSOrderFormService } from '../../services/ubs-order-form.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UbsConfirmPageComponent', () => {
   let component: UbsConfirmPageComponent;
@@ -22,7 +23,7 @@ describe('UbsConfirmPageComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UbsConfirmPageComponent],
-      imports: [TranslateModule.forRoot(), RouterModule.forRoot([])],
+      imports: [TranslateModule.forRoot(), RouterTestingModule],
       providers: [
         { provide: MatSnackBarComponent, useValue: fakeSnackBar },
         { provide: UBSOrderFormService, useValue: fakeUBSOrderFormService },

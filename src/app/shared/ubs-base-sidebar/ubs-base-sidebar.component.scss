@@ -9,16 +9,15 @@
 
     .sidebar-slider {
       position: absolute;
-      // width: 320px;
       background-color: var(--ubs-primary-grey);
-      margin-top: 83px;
+      margin-top: 80px;
     }
   }
 
   .main-content {
     margin-top: 120px;
     overflow-x: hidden;
-    min-height: 200px;
+    min-height: 345px;
   }
 
   .sidebar-list {

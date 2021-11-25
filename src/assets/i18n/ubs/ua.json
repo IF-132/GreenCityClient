@@ -81,6 +81,7 @@
     "address-corp": "корпус",
     "address-entrance": "під'їзд",
     "address-district": "район",
+    "address-region": "Область",
     "pop-up-title": "Нова адреса",
     "pop-up-city": "Місто",
     "pop-up-city-name": "Київ",
@@ -140,10 +141,11 @@
     "bags": "пакети"
   },
   "confirmation": {
-    "cancel": "Так, вийти",
+    "cancel": "Зберегти і вийти",
     "dismiss": "Продовжити",
+    "delete": "Видалити",
     "title": "Ви впевнені що хочете вийти?",
-    "subTitle": "Ваше замовлення буде збережене в особистому кабінеті"
+    "subTitle": "Ваше замовлення буде збережене в особистому кабінеті!"
   },
   "confirm-page": {
     "title-text": "Ваше замовлення прийнято",
