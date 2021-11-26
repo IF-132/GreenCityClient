@@ -36,6 +36,10 @@ form {
     border-radius: 3px;
     width: 100%;
   }
+
+  input.ng-touched.ng-invalid {
+    border: solid #bf140b 1px;
+  }
 }
 
 .group-title {
