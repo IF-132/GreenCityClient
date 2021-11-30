@@ -49,7 +49,7 @@
             <app-notification-body [body]="notification.body" [orderId]="notification.orderId"></app-notification-body>
           </div>
           <div *ngIf="notification.img" class="description title-img">Фотографії порушення</div>
-          <div *ngIf="notification.img" class="description img"><img src="{{ notification.img }}" alt="" /></div>
+          <div *ngIf="notification.img" class="description img"><img [src]="notification.img" alt="" /></div>
         </mat-expansion-panel>
       </mat-accordion>
       <div class="d-flex justify-content-center">
