@@ -15,8 +15,12 @@ export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
   employeePositions;
   receivingStations;
+  namePattern = /^[\p{L} ,.'-]+$/u;
   phoneMask = '{+38} (000) 00 000 00';
+  imageIsTooLarge = false;
+  invalidImageFormat = false;
   private maxImageSize = 10485760;
+  private validImageFormats = ['image/jpeg', 'image/png'];
   public isWarning = false;
   public isUploading = false;
   imageURL: string;
@@ -47,10 +51,10 @@ export class EmployeeFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Page
   ) {
     this.employeeForm = this.fb.group({
-      firstName: [this.data?.firstName ?? '', Validators.required],
-      lastName: [this.data?.lastName ?? '', Validators.required],
-      phoneNumber: [this.data?.phoneNumber ?? '', Validators.required],
-      email: [this.data?.email ?? '']
+      firstName: [this.data?.firstName ?? '', [Validators.required, Validators.pattern(this.namePattern)]],
+      lastName: [this.data?.lastName ?? '', [Validators.required, Validators.pattern(this.namePattern)]],
+      phoneNumber: [this.data?.phoneNumber ?? '', [Validators.required, Validators.minLength(13)]],
+      email: [this.data?.email ?? '', [Validators.required, Validators.email]]
     });
     this.employeePositions = this.data?.employeePositions ?? [];
     this.receivingStations = this.data?.receivingStations ?? [];
@@ -170,6 +174,9 @@ export class EmployeeFormComponent implements OnInit {
 
   private transferFile(imageFile: File): void {
     this.isWarning = this.showWarning(imageFile);
+
+    this.imageIsTooLarge = imageFile.size > this.maxImageSize;
+    this.invalidImageFormat = !this.validImageFormats.includes(imageFile.type);
 
     if (!this.isWarning) {
       const reader: FileReader = new FileReader();

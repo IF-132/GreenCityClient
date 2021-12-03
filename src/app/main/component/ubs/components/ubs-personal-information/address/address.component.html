@@ -1,5 +1,5 @@
 <div class="address d-flex flex-column">
-  <p>{{ 'personal-info.address-city' | translate }} {{ 'personal-info.pop-up-city-name' | translate }}</p>
+  <p>{{ address.city }}</p>
   <p>
     {{ address.street }}, {{ address.houseNumber }},
     <ng-template [ngIf]="address.houseCorpus">{{ 'personal-info.address-corp' | translate }} {{ address.houseCorpus }}, </ng-template>
