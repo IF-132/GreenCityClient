@@ -17,6 +17,7 @@ export class OrderService {
   locationSubject = new Subject();
   locationSub = new Subject();
   currentAddress = new Subject();
+  isStepperFinalSubject = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private shareFormService: UBSOrderFormService, private localStorageService: LocalStorageService) {}
 
@@ -123,5 +124,9 @@ export class OrderService {
     this.shareFormService.isDataSaved = true;
     this.localStorageService.removeUbsOrderId();
     this.shareFormService.saveDataOnLocalStorage();
+  }
+
+  setStepperFinal(data: boolean) {
+    this.isStepperFinalSubject.next(data);
   }
 }

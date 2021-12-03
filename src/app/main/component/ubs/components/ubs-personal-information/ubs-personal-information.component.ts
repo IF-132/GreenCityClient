@@ -57,10 +57,10 @@ export class UBSPersonalInformationComponent extends FormBaseComponent implement
 
   constructor(
     public router: Router,
+    public dialog: MatDialog,
     public orderService: OrderService,
     private shareFormService: UBSOrderFormService,
-    private fb: FormBuilder,
-    public dialog: MatDialog
+    private fb: FormBuilder
   ) {
     super(router, dialog, orderService);
     this.initForm();
