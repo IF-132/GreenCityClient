@@ -108,9 +108,9 @@ describe('UbsConfirmPageComponent', () => {
   it('should redirect to ubs-user/orders', () => {
     fakeJwtService.userRole$ = of('ROLE_USER');
     const navigateSpy = spyOn(router, 'navigate');
-    const saveDataOnLocalStorageMock = spyOn(component, 'saveDataOnLocalStorage');
+    const saveDataOnLocalStorageSpy = spyOn(component, 'saveDataOnLocalStorage');
     component.toPersonalAccount();
-    expect(saveDataOnLocalStorageMock).toHaveBeenCalled();
+    expect(saveDataOnLocalStorageSpy).toHaveBeenCalled();
     expect(navigateSpy).toHaveBeenCalledWith(['ubs-user', 'orders']);
   });
 });
