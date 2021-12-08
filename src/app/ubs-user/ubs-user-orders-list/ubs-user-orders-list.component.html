@@ -1,34 +1,42 @@
-<div *ngIf="orders.length !== 0" class="header_list">
+<div *ngIf="orders.length !== 0" class="header_list2">
   <div class="header_list-num">{{ 'user-orders.order-number' | translate }}</div>
   <div class="header_list-date">{{ 'user-orders.order-date' | translate }}</div>
   <div class="header_list-status">{{ 'user-orders.order-status' | translate }}</div>
   <div class="header_list-paymentStatus">{{ 'user-orders.order-payment-status' | translate }}</div>
   <div class="header_list-paymentAmount">{{ 'user-orders.payment-amount' | translate }}</div>
 </div>
-<div *ngFor="let order of orders" class="card">
-  <div class="empty_card">
-    <div class="orders_group" (click)="changeCard(order.id)">
-      <img *ngIf="order.extend" src="assets/img/ubs-admin-orders/arrow_down.svg" alt="arrow down" />
-      <img *ngIf="!order.extend" src="assets/img/ubs-admin-orders/arrow_up.svg" alt="arrow up" />
-      <div class="empty_card-id">{{ order.generalOrderInfo.id }}</div>
-      <div class="empty_card-date">{{ order.generalOrderInfo.dateFormed | date: 'dd.MM.y' }}</div>
-      <div class="empty_card-status">{{ order.generalOrderInfo.orderStatusName }}</div>
-      <div class="empty_card-paymentStatus">{{ order.generalOrderInfo.orderPaymentStatusName }}</div>
-      <div class="order_sum">{{ order.orderDiscountedPrice | currency | localizedCurrency }}</div>
+<mat-accordion multi="false">
+  <mat-expansion-panel *ngFor="let order of orders" (click)="changeCard(order.generalOrderInfo.id)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ order.generalOrderInfo.id }}
+      </mat-panel-title>
+      <mat-panel-description class="mat-desc">
+        {{ order.generalOrderInfo.dateFormed | date: 'dd.MM.y' }}
+      </mat-panel-description>
+      <mat-panel-description>
+        {{ order.generalOrderInfo.orderStatusName }}
+      </mat-panel-description>
+      <mat-panel-description>
+        {{ order.generalOrderInfo.orderPaymentStatusName }}
+      </mat-panel-description>
+      <mat-panel-description>
+        {{ order.orderDiscountedPrice | currency | localizedCurrency }}
+      </mat-panel-description>
+      <div class="btns_group">
+        <div *ngIf="isOrderFormed(order)" class="btn_grid_cancel">
+          <button class="btn_cancel" (click)="deleteCard(order.generalOrderInfo.id)">{{ 'user-orders.btn.cancel' | translate }}</button>
+        </div>
+        <div *ngIf="isOrderUnpaid(order)" class="btn_grid_pay">
+          <button class="btn_pay">{{ 'user-orders.btn.pay' | translate }}</button>
+        </div>
+        <div *ngIf="isOrderDone(order)" class="btn_grid_order">
+          <button class="btn_order">{{ 'user-orders.btn.order-again' | translate }}</button>
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+    <div class="description" *ngIf="order.extend">
+      <app-ubs-user-order-details [order]="order"></app-ubs-user-order-details>
     </div>
-    <div class="btns_group">
-      <div *ngIf="isOrderFormed(order)" class="btn_grid_cancel">
-        <button class="btn_cancel" (click)="deleteCard(order.generalOrderInfo.id)">{{ 'user-orders.btn.cancel' | translate }}</button>
-      </div>
-      <div *ngIf="isOrderUnpaid(order)" class="btn_grid_pay">
-        <button class="btn_pay">{{ 'user-orders.btn.pay' | translate }}</button>
-      </div>
-      <div *ngIf="isOrderDone(order)" class="btn_grid_order">
-        <button class="btn_order">{{ 'user-orders.btn.order-again' | translate }}</button>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="order.extend">
-    <app-ubs-user-order-details [order]="order"></app-ubs-user-order-details>
-  </div>
-</div>
+  </mat-expansion-panel>
+</mat-accordion>
