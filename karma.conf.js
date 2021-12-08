@@ -22,14 +22,14 @@ module.exports = function (config) {
     },
     customLaunchers: {
       ChromeHeadless: {
-      base: 'Chrome',
-      flags: [
-        '--headless',
-        '--disable-gpu',
-        // no-sandbox - for running under docker
-        '--no-sandbox',
-        // Without a remote debugging port, Google Chrome exits immediately.
-        '--remote-debugging-port=9222',
+       base: 'Chrome',
+       flags: [
+         '--headless',
+         '--disable-gpu',
+         // no-sandbox - for running under docker
+         '--no-sandbox',
+         // Without a remote debugging port, Google Chrome exits immediately.
+         '--remote-debugging-port=9222',
         ],
       }
     },

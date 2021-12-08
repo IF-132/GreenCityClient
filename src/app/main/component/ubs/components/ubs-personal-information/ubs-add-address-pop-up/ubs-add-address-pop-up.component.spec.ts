@@ -84,18 +84,15 @@ describe('UBSAddAddressPopUpComponent', () => {
     expect(component.addAddressForm.get('latitude').value).toBe(eventMock.latitude);
   });
 
-  it('method onDistrictSelected should invoke three another methods, and set region to addAddressForm', () => {
+  it('method onDistrictSelected should invoke two another methods, and set boolean value to disabled and selected district', () => {
     const eventMock = [];
     const spy1 = spyOn(component, 'onLocationSelected');
-    const spy2 = spyOn(component, 'setDistrict');
-    const spy3 = spyOn(component, 'onAutocompleteSelected');
+    const spy2 = spyOn(component, 'onAutocompleteSelected');
 
     component.onDistrictSelected(eventMock);
 
     expect(spy1).toHaveBeenCalled();
     expect(spy2).toHaveBeenCalled();
-    expect(spy3).toHaveBeenCalled();
-    expect(component.addAddressForm.get('district').value).toBe(component.region);
   });
 
   it('method onChange should set addAddressForm[district]', () => {
