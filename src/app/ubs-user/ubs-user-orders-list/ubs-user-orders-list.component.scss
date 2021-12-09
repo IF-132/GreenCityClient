@@ -20,36 +20,22 @@
 }
 
 .header_list {
-  display: grid;
-  grid-template-columns: 120px 110px 128px 94px 104px;
-  grid-template-rows: 30px;
-  grid-column-gap: 33px;
-  max-width: 1010px;
-  font-size: 14px;
-  font-weight: 500;
-  padding-top: 40px;
-  line-height: 20px;
-  border: none;
-  text-align: start;
-  margin-left: 63px;
-}
-
-.header_list2 {
   display: flex;
   flex-direction: row;
+  font-size: 14px;
+  font-weight: 500;
+  .header_list-num {
+    flex-grow: 1;
+  }
+  .header_list-date,
+  .header_list-status,
+  .header_list-paymentStatus,
+  .header_list-paymentAmount {
+    flex-grow: 2;
+  }
 }
-.orders_group {
-  display: grid;
-  grid-template-columns: 56px 143px 172px 200px 0px;
-  justify-items: center;
-  align-items: center;
-  padding: 15px 0px;
-  cursor: pointer;
-}
-
-.order_sum {
-  margin-right: 75px;
-  justify-self: end;
+.empty-div {
+  width: 300px;
 }
 
 .btns_group {
@@ -113,4 +99,28 @@
 .mat-expansion-panel-header-description {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 1060px) {
+  .header_list2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    .header_list-num {
+      flex-grow: 1;
+    }
+    .header_list-date,
+    .header_list-status,
+    .header_list-paymentStatus,
+    .header_list-paymentAmount {
+      flex-grow: 2;
+    }
+  }
+
+  .mat-expansion-panel-header {
+    height: 64px !important;
+    font-size: 13px;
+  }
 }

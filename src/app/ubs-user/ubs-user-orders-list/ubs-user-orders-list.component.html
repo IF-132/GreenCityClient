@@ -1,9 +1,10 @@
-<div *ngIf="orders.length !== 0" class="header_list2">
+<div *ngIf="orders.length !== 0" class="header_list">
   <div class="header_list-num">{{ 'user-orders.order-number' | translate }}</div>
   <div class="header_list-date">{{ 'user-orders.order-date' | translate }}</div>
   <div class="header_list-status">{{ 'user-orders.order-status' | translate }}</div>
   <div class="header_list-paymentStatus">{{ 'user-orders.order-payment-status' | translate }}</div>
   <div class="header_list-paymentAmount">{{ 'user-orders.payment-amount' | translate }}</div>
+  <div class="empty-div"></div>
 </div>
 <mat-accordion multi="false">
   <mat-expansion-panel *ngFor="let order of orders" (click)="changeCard(order.generalOrderInfo.id)">
