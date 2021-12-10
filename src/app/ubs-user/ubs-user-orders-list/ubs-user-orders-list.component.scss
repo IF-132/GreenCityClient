@@ -24,6 +24,7 @@
   flex-direction: row;
   font-size: 14px;
   font-weight: 500;
+  line-height: 20px;
   .header_list-num {
     flex-grow: 1;
   }
@@ -34,8 +35,15 @@
     flex-grow: 2;
   }
 }
+
 .empty-div {
   width: 300px;
+}
+
+.mat-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
 .btns_group {
@@ -102,7 +110,7 @@
 }
 
 @media (max-width: 1060px) {
-  .header_list2 {
+  .header_list {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -111,6 +119,7 @@
     .header_list-num {
       flex-grow: 1;
     }
+
     .header_list-date,
     .header_list-status,
     .header_list-paymentStatus,
@@ -122,5 +131,65 @@
   .mat-expansion-panel-header {
     height: 64px !important;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    .header_list-num {
+      flex-grow: 1;
+      width: 40px;
+      margin-right: 25px;
+    }
+
+    .header_list-date,
+    .header_list-status {
+      display: none;
+    }
+
+    .header_list-paymentStatus,
+    .header_list-paymentAmount {
+      flex-grow: 2;
+    }
+  }
+
+  .mat-expansion-panel-header {
+    height: 64px !important;
+    font-size: 13px;
+  }
+
+  .order_list-date,
+  .order_list-status {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  ::ng-deep {
+    .mat-content {
+      display: flex;
+      flex-direction: column !important;
+    }
+  }
+
+  .mat-expansion-panel-header {
+    height: 90px !important;
+  }
+
+  .btns_group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .empty-div {
+    display: none;
   }
 }

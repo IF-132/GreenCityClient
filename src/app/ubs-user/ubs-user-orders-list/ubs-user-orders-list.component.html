@@ -9,21 +9,23 @@
 <mat-accordion multi="false">
   <mat-expansion-panel *ngFor="let order of orders" (click)="changeCard(order.generalOrderInfo.id)">
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ order.generalOrderInfo.id }}
-      </mat-panel-title>
-      <mat-panel-description class="mat-desc">
-        {{ order.generalOrderInfo.dateFormed | date: 'dd.MM.y' }}
-      </mat-panel-description>
-      <mat-panel-description>
-        {{ order.generalOrderInfo.orderStatusName }}
-      </mat-panel-description>
-      <mat-panel-description>
-        {{ order.generalOrderInfo.orderPaymentStatusName }}
-      </mat-panel-description>
-      <mat-panel-description>
-        {{ order.orderDiscountedPrice | currency | localizedCurrency }}
-      </mat-panel-description>
+      <div class="mat-content-wrapper">
+        <mat-panel-title class="order_list-num">
+          {{ order.generalOrderInfo.id }}
+        </mat-panel-title>
+        <mat-panel-description class="order_list-date">
+          {{ order.generalOrderInfo.dateFormed | date: 'dd.MM.y' }}
+        </mat-panel-description>
+        <mat-panel-description class="order_list-status">
+          {{ order.generalOrderInfo.orderStatusName }}
+        </mat-panel-description>
+        <mat-panel-description class="order_list-paymentStatus">
+          {{ order.generalOrderInfo.orderPaymentStatusName }}
+        </mat-panel-description>
+        <mat-panel-description class="order_list-paymentAmount">
+          {{ order.orderDiscountedPrice | currency | localizedCurrency }}
+        </mat-panel-description>
+      </div>
       <div class="btns_group">
         <div *ngIf="isOrderFormed(order)" class="btn_grid_cancel">
           <button class="btn_cancel" (click)="deleteCard(order.generalOrderInfo.id)">{{ 'user-orders.btn.cancel' | translate }}</button>
