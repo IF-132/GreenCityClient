@@ -199,6 +199,7 @@ ul {
 
 hr {
   @include height-and-width(2px, 72px);
+
   border: none;
   background-color: var(--ubs-tertiary-light-grey);
   position: absolute;
@@ -324,35 +325,50 @@ hr {
     .ubs-polygon {
       margin: 10px auto;
     }
+
     .section-header {
       width: 90%;
       padding: 10px;
       text-align: center;
     }
+
     h1 {
       margin-bottom: 0;
     }
+
     header {
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
+
       .header-right {
         width: 85%;
         text-align: justify;
+
         .main-content {
           display: flex;
           flex-flow: column;
           justify-content: center;
           align-items: center;
+
           h2 {
             text-align: center;
           }
         }
       }
+
       .header-left {
         max-width: 70%;
       }
+    }
+
+    .header-step {
+      margin-top: 45px;
+    }
+
+    .content-step {
+      margin-top: 110px;
     }
 
     section {
@@ -362,34 +378,43 @@ hr {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         .header-right {
           width: 89%;
+
           h2 {
             text-align: center;
           }
+
           ul {
             text-align: justify;
           }
+
           .main-content {
             ul {
               text-align: justify;
             }
           }
         }
+
         .header-left {
           max-width: 70%;
         }
       }
+
       .box {
         flex-direction: column;
+
         #step-order {
           width: 89%;
           margin: 20px 20px 0;
           flex: none;
           justify-content: center;
+
           .header-step {
             text-align: center;
           }
+
           .content-step {
             width: 100%;
             margin-top: 80px;
@@ -399,40 +424,49 @@ hr {
         }
       }
     }
+
     #how-works {
-      margin-top: 0px;
+      margin-top: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       .header-right {
         width: 85%;
         text-align: justify;
+
         #main-content {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+
           .time-how {
             width: 100%;
             font-size: 17px;
             text-align: center;
             margin: 0;
           }
+
           #header-how-works {
             text-align: center;
+
             #how-works-content {
               text-align: justify;
             }
           }
         }
       }
+
       .header-left {
         max-width: 85%;
       }
     }
+
     #price-frame {
       @include height-and-width(178px, 310px);
+
       background-size: 310px 187px;
     }
 
@@ -449,14 +483,6 @@ hr {
 
     .content-price {
       margin: 70px 25px 10px;
-    }
-
-    .header-step {
-      margin-top: 45px;
-    }
-
-    .content-step {
-      margin-top: 110px;
     }
 
     .button {
