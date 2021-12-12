@@ -20,6 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @NgModule({
   imports: [
@@ -43,7 +45,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatSelectModule,
     MatRadioModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatExpansionModule,
+    CdkAccordionModule
   ],
   exports: [
     MatTableModule,
@@ -66,7 +70,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatSelectModule,
     MatRadioModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatExpansionModule,
+    CdkAccordionModule
   ]
 })
 export class MaterialModule {}

@@ -1,5 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UbsAdminEmployeeService } from 'src/app/ubs-admin/services/ubs-admin-employee.service';
 import { UbsAdminEmployeeTableComponent } from './ubs-admin-employee-table.component';
 
 describe('UbsAdminEmployeeTableComponent', () => {
@@ -8,7 +10,9 @@ describe('UbsAdminEmployeeTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [UbsAdminEmployeeTableComponent]
+      declarations: [UbsAdminEmployeeTableComponent],
+      imports: [HttpClientTestingModule, MatDialogModule],
+      providers: [UbsAdminEmployeeService]
     }).compileComponents();
   }));
 

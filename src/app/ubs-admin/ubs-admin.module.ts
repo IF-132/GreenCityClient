@@ -55,6 +55,9 @@ import { UbsAdminTariffsAddServicePopUpComponent } from './components/ubs-admin-
 import { UbsAdminEmployeeTableComponent } from './components/ubs-admin-employee/ubs-admin-employee-table/ubs-admin-employee-table.component';
 import { UbsAdminCustomerDetailsComponent } from './components/ubs-admin-customers/ubs-admin-customer-details/ubs-admin-customer-details.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { DialogPopUpComponent } from './components/shared/components/dialog-pop-up/dialog-pop-up.component';
+import { UbsAdminEmployeeTableMobileComponent } from './components/ubs-admin-employee/ubs-admin-employee-table-mobile/ubs-admin-employee-table-mobile.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     UbsAdminTariffsAddTariffServicePopUpComponent,
     UbsAdminTariffsLocationDashboardComponent,
     UbsAdminEmployeeTableComponent,
-    UbsAdminCustomerDetailsComponent
+    UbsAdminCustomerDetailsComponent,
+    DialogPopUpComponent,
+    UbsAdminEmployeeTableMobileComponent
   ],
   imports: [
     CommonModule,
@@ -111,6 +116,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatTableModule,
+    MatDialogModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

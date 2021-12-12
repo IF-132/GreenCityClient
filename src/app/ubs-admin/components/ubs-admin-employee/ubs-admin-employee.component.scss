@@ -72,6 +72,24 @@
   }
 }
 
+@media screen and (min-width: 320px) and (max-width: 960px) {
+  .main-employee-container {
+    margin-left: 60px;
+
+    .employee-header {
+      flex-direction: column;
+
+      .eployee-name {
+        margin-top: 20px;
+      }
+
+      .employee-add {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1138px) {
   .main-employee-container {
     padding-left: 0;

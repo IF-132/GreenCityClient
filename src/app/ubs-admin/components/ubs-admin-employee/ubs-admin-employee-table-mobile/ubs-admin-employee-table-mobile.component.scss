@@ -1,0 +1,109 @@
+mat-panel-title {
+  justify-content: space-between;
+}
+
+.employee-table-mobile {
+  #edit-delete-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .mat-icon {
+      margin: 0 15px;
+      color: var(--ubs-quintynary-light-grey);
+    }
+
+    .mat-icon:hover {
+      color: var(--ubs-tertiary-grey);
+      cursor: pointer;
+    }
+  }
+
+  .employee-cell {
+    margin-bottom: 15px;
+
+    .employee-info {
+      padding-left: 15px;
+
+      p {
+        overflow-wrap: break-word;
+      }
+    }
+  }
+}
+
+.employee-table-tablet {
+  margin-bottom: 30px;
+
+  .edit-delete-tablet {
+    border: thin solid var(--ubs-primary-light-grey);
+  }
+
+  #edit-delete-btn {
+    display: flex;
+    justify-content: center;
+    padding: 15 0;
+
+    .mat-icon {
+      margin: 10px 20px;
+      color: var(--ubs-quintynary-light-grey);
+    }
+
+    .mat-icon:hover {
+      color: var(--ubs-tertiary-grey);
+      cursor: pointer;
+    }
+  }
+
+  .employee-cell {
+    background-color: #ffff;
+    border: thin solid var(--ubs-primary-light-grey);
+    border-bottom: none;
+    display: flex;
+    flex-direction: row;
+    color: var(--ubs-primary-grey);
+    font-size: 14px;
+    font-family: var(--primary-font);
+
+    .title {
+      min-width: 110px;
+      width: 35%;
+      background-color: var(--ubs-primary-grey);
+      color: var(--ubs-primary-white);
+      font-family: var(--primary-font);
+      border: 1px solid var(--ubs-primary-light-grey);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .employee-info {
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--ubs-primary-grey);
+      font-size: 14px;
+      font-family: var(--primary-font);
+      min-width: 48px;
+      min-height: 100px;
+      overflow: hidden;
+      text-align: center;
+    }
+  }
+
+  .employee-cell:last-of-type {
+    border-bottom: thin solid var(--ubs-primary-light-grey);
+  }
+}
+
+p {
+  margin: 0;
+}
+
+mat-expansion-panel {
+  margin-bottom: 25px;
+}
