@@ -21,12 +21,12 @@
     max-width: 480px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     .close-modal-window {
       display: flex;
       justify-content: flex-end;
-      margin: 26px 26px 22px 90%;
-      width: min-content;
+      margin: 26px 26px 26px 90%;
       padding: 5px;
     }
 
@@ -38,6 +38,9 @@
     div {
       align-self: center;
       width: 370px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -53,11 +56,25 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 575px) {
   .wrapper {
     .right-side {
       div {
-        max-width: 343px;
+        height: 100vh;
+        align-items: stretch;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) and (max-height: 670px) {
+  .wrapper {
+    .right-side {
+      margin-bottom: 40px;
+
+      .close-modal-window {
+        margin: 26px 26px 10px 90%;
       }
     }
   }

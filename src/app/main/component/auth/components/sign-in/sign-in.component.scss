@@ -1,20 +1,24 @@
 $inputHeight: 48px;
 
-h1 {
-  margin-bottom: 8px;
-  font-family: var(--secondary-font);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 38px;
-  line-height: 48px;
-  color: var(--tertiary-dark-grey);
-}
+.heading-container {
+  text-align: center;
 
-h2 {
-  margin-bottom: 40px;
-  font-family: var(--primary-font);
-  font-size: 16px;
-  line-height: 16px;
+  h1 {
+    margin-bottom: 8px;
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 48px;
+    color: var(--tertiary-dark-grey);
+  }
+
+  h2 {
+    margin-bottom: 40px;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 16px;
+  }
 }
 
 .password-input-btn-show-hide {
@@ -55,6 +59,7 @@ h2 {
 .sign-in-form {
   display: flex;
   flex-direction: column;
+  width: 368px;
 
   label[for='email'],
   label[for='password'] {
@@ -111,6 +116,7 @@ h2 {
 
 .google-sign-in-block {
   display: flex;
+  align-items: center;
 }
 
 .forgot-wrapper {
@@ -121,7 +127,7 @@ h2 {
   .ubs-forgot-password,
   .forgot-password {
     font-family: var(--primary-font);
-    font-size: 12px;
+    font-size: 14px;
     line-height: 16px;
     text-decoration-line: underline;
   }
@@ -151,7 +157,7 @@ h2 {
 }
 
 .ubs-primary-global-button {
-  height: 43px;
+  height: 48px;
 
   .span {
     color: black;
@@ -168,12 +174,13 @@ h2 {
 }
 
 .missing-account {
-  margin-top: 203px;
+  margin-top: 200px;
   margin-bottom: 40px;
   font-family: var(--primary-font);
   font-size: 16px;
   line-height: 16px;
   color: var(--primary-dark-grey);
+  text-align: center;
 
   .ubs-sign-up-link {
     color: var(--ubs-primary-blue);
@@ -185,5 +192,44 @@ h2 {
     color: var(--secondary-dark-green);
     margin-left: 8px;
     text-decoration-line: underline;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .sign-in-form {
+    width: 350px;
+  }
+
+  .google-sign-in-block {
+    align-self: center;
+  }
+
+  .missing-account {
+    margin-top: 140px;
+  }
+}
+
+@media screen and (max-width: 375px) and (max-height: 670px) {
+  .sign-in-form {
+    width: 100%;
+  }
+
+  .heading-container {
+    h1 {
+      font-size: 38px;
+      line-height: 30px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+
+  .google-sign-in-block {
+    align-self: center;
+  }
+
+  .missing-account {
+    margin-top: 30px;
   }
 }

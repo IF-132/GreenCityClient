@@ -48,7 +48,7 @@
       <app-ubs-input-error [formElement]="street" [streetFieldValue]="street.value" [controlName]="'street'"> </app-ubs-input-error>
     </div>
   </div>
-  <div class="row col-lg-6 col-md-12 col-sm-12 d-flex justify-content-between flex-wrap form-group">
+  <div class="row col-lg-6 col-md-12 col-sm-12 d-flex justify-content-between form-group">
     <div class="item col-sm-4">
       <label>{{ 'personal-info.pop-up-house' | translate }}</label>
       <input
@@ -97,12 +97,13 @@
       <app-ubs-input-error [formElement]="addressComment" [controlName]="'addressComment'"> </app-ubs-input-error>
     </div>
   </div>
+
+  <div class="d-flex justify-content-center buttons" mat-dialog-actions>
+    <button class="secondary-global-button btn m-0 mr-2" mat-button (click)="onNoClick()" type="button">
+      {{ 'personal-info.pop-up-cancel' | translate }}
+    </button>
+    <button class="primary-global-button btn m-0" type="submit" (click)="addAdress()" [disabled]="!addAddressForm.valid || isDisabled">
+      {{ (data.edit ? 'personal-info.pop-up-save-changes' : 'personal-info.pop-up-add-address') | translate }}
+    </button>
+  </div>
 </form>
-<div class="d-flex justify-content-end buttons" mat-dialog-actions>
-  <button class="secondary-global-button btn m-0 mr-2" mat-button (click)="onNoClick()">
-    {{ 'personal-info.pop-up-cancel' | translate }}
-  </button>
-  <button class="primary-global-button btn m-0" (click)="addAdress()" [disabled]="!addAddressForm.valid || isDisabled">
-    {{ (data.edit ? 'personal-info.pop-up-save-changes' : 'personal-info.pop-up-add-address') | translate }}
-  </button>
-</div>
