@@ -3,10 +3,10 @@
   justify-content: center;
 
   .order {
-    width: 50%;
+    width: 55%;
     height: 50%;
     box-shadow: 1px 4px 8px rgb(100 114 125 / 18%);
-    padding: 10px 60px 20px 40px;
+    padding: 20px 40px;
     color: var(--ubs-primary-grey);
     font-family: var(--ubs-quaternary-font);
     margin-top: -28px;
@@ -113,6 +113,23 @@
   .wraper {
     .order {
       width: 44%;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .wraper {
+    .order {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .wraper {
+    .order {
+      width: 100%;
+      margin-top: -140px;
     }
   }
 }

@@ -4,20 +4,24 @@
 }
 
 .dialog-container {
-  position: relative;
-  width: 464px;
-  height: 318px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  width: 470px;
+  height: 400px;
   font-family: var(--primary-font);
   font-weight: bold;
   font-size: larger;
 
   .title {
-    margin: 16px;
+    margin: 15px;
     font-weight: bolder;
   }
 
   .form {
-    margin: 20px;
+    margin: 55px 20px 50px 20px;
     font-size: 20px;
 
     .select {
@@ -40,7 +44,6 @@
   }
 
   .footer-btns {
-    position: absolute;
     bottom: 0;
     right: 0;
     margin: 20px 0 0 0;
@@ -68,5 +71,29 @@
     border: 1px solid var(--ubs-quaternary-dark-grey);
     font-size: 18px;
     color: var(--ubs-quaternary-dark-grey);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .dialog-container {
+    width: 100%;
+    height: 100vh;
+    justify-content: space-between;
+
+    .title {
+      line-height: 1.5em;
+      margin: 1em 0.5em;
+      text-align: center;
+    }
+
+    .footer-btns {
+      display: flex;
+      flex-direction: row;
+      gap: 2em;
+      align-content: space-between;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 10em;
+    }
   }
 }
