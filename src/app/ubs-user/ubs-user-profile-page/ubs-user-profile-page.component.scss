@@ -12,11 +12,12 @@
     justify-content: space-between;
 
     .header-text {
-      padding-top: 30px;
+      margin: 0 20px 20px 20px;
     }
   }
 
   .input-group {
+    margin: 0 10px;
     padding: 20px;
     width: 905px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
@@ -116,6 +117,7 @@
     .footer-btns {
       display: flex;
       justify-content: flex-start;
+      margin: 0 10px;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
     }
   }
@@ -130,5 +132,16 @@
 @media (max-width: 992px) {
   .ubs_profile-container {
     max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .house {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      margin-right: 30px;
+    }
   }
 }
