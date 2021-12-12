@@ -9,6 +9,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { UbsConfirmPageComponent } from './ubs-confirm-page.component';
 import { UBSOrderFormService } from '../../services/ubs-order-form.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UbsConfirmPageComponent', () => {
   let component: UbsConfirmPageComponent;
