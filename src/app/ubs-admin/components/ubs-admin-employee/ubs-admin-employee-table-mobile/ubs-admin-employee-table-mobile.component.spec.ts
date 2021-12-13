@@ -30,7 +30,7 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [UbsAdminEmployeeTableMobileComponent],
       imports: [HttpClientTestingModule, MatDialogModule],
-      providers: [UbsAdminEmployeeTableComponent, { provide: UbsAdminEmployeeTableComponent, useClass: AdminEmployeeTableStub }]
+      providers: [{ provide: UbsAdminEmployeeTableComponent, useClass: AdminEmployeeTableStub }]
     }).compileComponents();
 
     employeeTableFunc = TestBed.get(UbsAdminEmployeeTableComponent);
@@ -47,8 +47,8 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
   });
 
   it('detecting initial value of variables', () => {
-    expect(component.isLoading).toEqual(true);
-    expect(component.chooseItemId).toEqual(0);
+    expect(component.isLoading).toBeTruthy();
+    expect(component.chooseItemId).toBe(0);
   });
 
   it('check openModal function', () => {
@@ -65,6 +65,6 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
 
   it(' check setChooseItem function', () => {
     component.setChooseItem(2);
-    expect(component.chooseItemId).toEqual(2);
+    expect(component.chooseItemId).toBe(2);
   });
 });

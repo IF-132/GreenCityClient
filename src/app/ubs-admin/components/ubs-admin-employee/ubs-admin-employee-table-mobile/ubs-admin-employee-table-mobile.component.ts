@@ -36,4 +36,8 @@ export class UbsAdminEmployeeTableMobileComponent implements DoCheck {
   setChooseItem(itemId: number): void {
     this.chooseItemId = itemId;
   }
+
+  identify(index: number, item: Page) {
+    return item.id;
+  }
 }

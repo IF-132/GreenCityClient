@@ -34,7 +34,7 @@
         <ng-container class="column.field" matColumnDef="fullName">
           <mat-header-cell *matHeaderCellDef>
             <th id="name">
-              <span class="column-title">Ім'я працівника</span>
+              <span class="column-title"> {{ 'ubs-employee.employeeName' | translate }} </span>
             </th>
           </mat-header-cell>
           <mat-cell *matCellDef="let row" class="column.field">
@@ -47,7 +47,7 @@
         <ng-container class="column.field" matColumnDef="position">
           <mat-header-cell *matHeaderCellDef>
             <th id="position" class="drop" (click)="openPositions()">
-              <span class="column-title">Посада</span>
+              <span class="column-title"> {{ 'ubs-employee.position' | translate }} </span>
             </th>
             <div class="check" *ngIf="isPositionsOpen">
               <div *ngFor="let position of allPositions">
@@ -66,7 +66,7 @@
         <ng-container class="column.field" matColumnDef="location">
           <mat-header-cell *matHeaderCellDef>
             <th id="station" class="drop" (click)="openStations()">
-              <span class="column-title">Станція приймання</span>
+              <span class="column-title"> {{ 'ubs-employee.receiving-station' | translate }} </span>
             </th>
             <div class="check" *ngIf="isStationsOpen">
               <div *ngFor="let station of allStations">
@@ -85,13 +85,13 @@
         <ng-container class="column.field" matColumnDef="email">
           <mat-header-cell *matHeaderCellDef>
             <th id="email">
-              <span class="column-title">email</span>
+              <span class="column-title"> {{ 'ubs-employee.email' | translate }} </span>
             </th>
           </mat-header-cell>
           <mat-cell *matCellDef="let row" class="column.field">
             <div>
               <span
-                ><a href="mailto:'row.email'"> {{ row.email }} </a>
+                ><a [href]="'mailto:' + row.email"> {{ row.email }} </a>
               </span>
             </div>
           </mat-cell>
@@ -100,13 +100,13 @@
         <ng-container class="column.field" matColumnDef="phoneNumber">
           <mat-header-cell *matHeaderCellDef>
             <th id="phone">
-              <span class="column-title">Телефон</span>
+              <span class="column-title"> {{ 'ubs-employee.phone' | translate }} </span>
             </th>
           </mat-header-cell>
           <mat-cell *matCellDef="let row" class="column.field">
             <div>
               <span
-                ><a href="tel:'row.phoneNumber'"> {{ row.phoneNumber }} </a></span
+                ><a [href]="'tel:' + row.phoneNumber"> {{ row.phoneNumber }} </a></span
               >
             </div>
           </mat-cell>
@@ -127,5 +127,5 @@
     </ng-template>
   </div>
 
-  <button (click)="topFunction()" id="swipeTopBtn" title="Go to top">Top</button>
+  <button (click)="goTop()" id="swipeTopBtn" title="Go to top">Top</button>
 </div>

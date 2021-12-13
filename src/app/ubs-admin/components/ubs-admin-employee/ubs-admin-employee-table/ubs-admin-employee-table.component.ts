@@ -194,26 +194,18 @@ export class UbsAdminEmployeeTableComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.screenWidth = window.innerWidth;
-    if (this.screenWidth < 782 && this.screenWidth > 319) {
-      return false;
-    } else {
-      return true;
-    }
+    return !(this.screenWidth < 782 && this.screenWidth > 319);
   }
 
   @HostListener('window:scroll', []) onWindowScroll() {
-    this.scrollFunction();
+    this.onToggleScrollBtn();
   }
-  scrollFunction() {
+  onToggleScrollBtn() {
     const btnElement = document.getElementById('swipeTopBtn');
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btnElement.style.display = 'block';
-    } else {
-      btnElement.style.display = 'none';
-    }
+    btnElement.style.display = document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? 'block' : 'none';
   }
 
-  topFunction() {
+  goTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }

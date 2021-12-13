@@ -25,4 +25,21 @@ describe('UbsAdminEmployeeTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('check initial value of variables', () => {
+    expect(component.currentPageForTable).toBe(0);
+    expect(component.isUpdateTable).toBe(false);
+  });
+
+  it('ngOnInit function check', () => {
+    let spy = spyOn(component, 'getTable');
+
+    component.ngOnInit();
+    expect(component.screenWidth).toBeDefined();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('getEmployees function must return list of Employee', async () => {
+    component.getTable();
+  });
 });

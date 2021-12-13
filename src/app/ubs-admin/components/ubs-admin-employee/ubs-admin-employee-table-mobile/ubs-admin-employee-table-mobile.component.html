@@ -1,7 +1,8 @@
 <div *ngIf="!isLoading; else spinner">
-  <div *ngIf="screenWidth < 480">
+  <ng-template #mobielView>
     <mat-expansion-panel
       *ngFor="let data of dataSource.filteredData"
+      trackBy:identify
       [expanded]="chooseItemId === data.id"
       (opened)="setChooseItem(data.id)"
       hideToggle
@@ -21,7 +22,9 @@
         </div>
         <div class="employee-cell">
           <div class="title">
-            <p><small> Ім'я працівника </small></p>
+            <p>
+              <small> {{ 'ubs-employee.employeeName' | translate }} </small>
+            </p>
           </div>
           <div class="employee-info">
             <p>{{ data.firstName }} {{ data.lastName }}</p>
@@ -29,7 +32,9 @@
         </div>
         <div class="employee-cell">
           <div class="title">
-            <p><small> Посада </small></p>
+            <p>
+              <small> {{ 'ubs-employee.position' | translate }} </small>
+            </p>
           </div>
           <div class="employee-info">
             <p *ngFor="let position of data.employeePositions">
@@ -40,7 +45,9 @@
 
         <div class="employee-cell">
           <div class="title">
-            <p><small> Станція прийому </small></p>
+            <p>
+              <small> {{ 'ubs-employee.receiving-station' | translate }} </small>
+            </p>
           </div>
           <div class="employee-info">
             <p *ngFor="let station of data.receivingStations">
@@ -51,30 +58,34 @@
 
         <div class="employee-cell">
           <div class="title">
-            <p><small> email </small></p>
+            <p>
+              <small> {{ 'ubs-employee.email' | translate }} </small>
+            </p>
           </div>
           <div class="employee-info">
             <p>
-              <a href="mailto:'data.email'"> {{ data.email }} </a>
+              <a [href]="'mailto:' + data.email"> {{ data.email }} </a>
             </p>
           </div>
         </div>
 
         <div class="employee-cell">
           <div class="title">
-            <p><small> телефон </small></p>
+            <p>
+              <small> {{ 'ubs-employee.phone' | translate }} </small>
+            </p>
           </div>
           <div class="employee-info">
             <p>
-              <a href="tel:'data.phoneNumber'"> {{ data.phoneNumber }} </a>
+              <a [href]="'tel:' + data.phoneNumber"> {{ data.phoneNumber }} </a>
             </p>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
-  </div>
+  </ng-template>
 
-  <div *ngIf="screenWidth > 480">
+  <div *ngIf="screenWidth > 480; else mobielView">
     <div class="employee-table-tablet" *ngFor="let data of dataSource.filteredData">
       <div id="edit-delete-btn" class="edit-delete-tablet">
         <mat-icon class="mat-icon" (click)="openModal(data)">edit</mat-icon>
@@ -82,7 +93,7 @@
       </div>
       <div class="employee-cell">
         <div class="title">
-          <p>Ім'я працівника</p>
+          <p>{{ 'ubs-employee.employeeName' | translate }}</p>
         </div>
         <div class="employee-info">
           <p>{{ data.firstName }} {{ data.lastName }}</p>
@@ -90,7 +101,7 @@
       </div>
       <div class="employee-cell">
         <div class="title">
-          <p>Посада</p>
+          <p>{{ 'ubs-employee.position' | translate }}</p>
         </div>
         <div class="employee-info">
           <p *ngFor="let position of data.employeePositions">
@@ -101,7 +112,7 @@
 
       <div class="employee-cell">
         <div class="title">
-          <p>Станція прийому</p>
+          <p>{{ 'ubs-employee.receiving-station' | translate }}</p>
         </div>
         <div class="employee-info">
           <p *ngFor="let station of data.receivingStations">
@@ -112,22 +123,22 @@
 
       <div class="employee-cell">
         <div class="title">
-          <p>email</p>
+          <p>{{ 'ubs-employee.email' | translate }}</p>
         </div>
         <div class="employee-info">
           <p>
-            <a href="mailto:'data.email'"> {{ data.email }} </a>
+            <a [href]="'mailto:' + data.email"> {{ data.email }} </a>
           </p>
         </div>
       </div>
 
       <div class="employee-cell">
         <div class="title">
-          <p>телефон</p>
+          <p>{{ 'ubs-employee.phone' | translate }}</p>
         </div>
         <div class="employee-info">
           <p>
-            <a href="tel:'data.phoneNumber'"> {{ data.phoneNumber }} </a>
+            <a [href]="'tel:' + data.phoneNumber"> {{ data.phoneNumber }} </a>
           </p>
         </div>
       </div>
