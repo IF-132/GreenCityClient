@@ -149,7 +149,7 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   private checkUBSuserData() {
     const ubsData = this.localeStorageService.getUbsPersonalData();
-    if (ubsData !== false) {
+    if (ubsData) {
       if (ubsData.email !== this.jwtService.getEmailFromAccessToken()) {
         this.localeStorageService.deleteUbsPersonalData();
       }
