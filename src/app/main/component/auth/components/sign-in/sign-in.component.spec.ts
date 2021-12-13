@@ -44,6 +44,7 @@ describe('SignIn component', () => {
   localStorageServiceMock.getUserId = () => 1;
   localStorageServiceMock.getAccessToken = () => '1';
   localStorageServiceMock.ubsRegBehaviourSubject = new BehaviorSubject(true);
+  localStorageServiceMock.getUbsPersonalData = () => false;
 
   matDialogMock = jasmine.createSpyObj('MatDialogRef', ['close']);
   matDialogMock.close = () => 'Close the window please';

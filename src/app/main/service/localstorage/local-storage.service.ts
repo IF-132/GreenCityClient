@@ -148,6 +148,10 @@ export class LocalStorageService {
     return localStorage.getItem('UBSpersonalData') === 'undefined' ? false : JSON.parse(localStorage.getItem('UBSpersonalData'));
   }
 
+  public deleteUbsPersonalData() {
+    localStorage.removeItem('UBSpersonalData');
+  }
+
   public getUbsOrderData(): any {
     return localStorage.getItem('UBSorderData') === 'undefined' ? false : JSON.parse(localStorage.getItem('UBSorderData'));
   }
