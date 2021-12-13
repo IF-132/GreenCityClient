@@ -146,8 +146,28 @@
             name="address"
             type="radio"
             [value]="address.id"
-            [checked]="address.actual && address.city === 'Київ' ? address.city == currentLocation : address.region == currentLocation"
-            [disabled]="address.city === 'Київ' ? address.city !== currentLocation : address.region !== currentLocation"
+            [checked]="
+              address.actual && currentLocation === 'Київ'
+                ? address.city === currentLocation
+                : currentLocation === 'Kyiv'
+                ? address.city === 'Київ'
+                : currentLocation === 'Kyiv region'
+                ? address.region === 'Київська область' || address.city !== 'Київ'
+                : currentLocation === 'Київська область'
+                ? address.region === currentLocation || address.city !== 'Київ'
+                : false
+            "
+            [disabled]="
+              currentLocation === 'Київ'
+                ? address.city !== currentLocation
+                : currentLocation === 'Kyiv'
+                ? address.city !== 'Київ'
+                : currentLocation === 'Kyiv region'
+                ? address.region !== 'Київська область' || address.city === 'Київ'
+                : currentLocation === 'Київська область'
+                ? address.region !== currentLocation || address.city === 'Київ'
+                : true
+            "
             (click)="checkAddress(address.id)"
           />
         </div>
