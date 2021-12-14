@@ -6,6 +6,7 @@ import { Page } from 'src/app/ubs-admin/models/ubs-admin.interface';
 import { UbsAdminEmployeeService } from 'src/app/ubs-admin/services/ubs-admin-employee.service';
 import { DialogPopUpComponent } from '../../shared/components/dialog-pop-up/dialog-pop-up.component';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
+import { UbsAdminEmployeeMethodsClass } from '../ubs-admin-abstract/ubs-admin-employee-methods';
 
 @Component({
   selector: 'app-ubs-admin-employee-table',
@@ -15,7 +16,7 @@ import { EmployeeFormComponent } from '../employee-form/employee-form.component'
 @Injectable({
   providedIn: 'root'
 })
-export class UbsAdminEmployeeTableComponent implements OnInit {
+export class UbsAdminEmployeeTableComponent extends UbsAdminEmployeeMethodsClass implements OnInit {
   currentPageForTable = 0;
   isUpdateTable = false;
   isLoading = true;
@@ -38,7 +39,9 @@ export class UbsAdminEmployeeTableComponent implements OnInit {
     popupCancel: 'employees.btn.no'
   };
   screenWidth: number;
-  constructor(private ubsAdminEmployeeService: UbsAdminEmployeeService, private dialog: MatDialog) {}
+  constructor(private ubsAdminEmployeeService: UbsAdminEmployeeService, private dialog: MatDialog) {
+    super(dialog, ubsAdminEmployeeService);
+  }
 
   ngOnInit(): void {
     this.getTable();
@@ -163,32 +166,11 @@ export class UbsAdminEmployeeTableComponent implements OnInit {
   }
 
   openModal(employeeData: Page) {
-    this.dialog.open(EmployeeFormComponent, {
-      data: employeeData,
-      hasBackdrop: true,
-      closeOnNavigation: true,
-      disableClose: true,
-      panelClass: 'custom-dialog-container'
-    });
+    this.openModalWindow(employeeData);
   }
 
   deleteEmployee(employeeId: number) {
-    const matDialogRef = this.dialog.open(DialogPopUpComponent, {
-      data: this.deleteDialogData,
-      hasBackdrop: true,
-      closeOnNavigation: true,
-      disableClose: true,
-      panelClass: ''
-    });
-
-    matDialogRef
-      .afterClosed()
-      .pipe(take(1))
-      .subscribe((res) => {
-        if (res) {
-          this.ubsAdminEmployeeService.deleteEmployee(employeeId).subscribe();
-        }
-      });
+    this.toDeleteEmployee(employeeId);
   }
 
   @HostListener('window:resize', ['$event'])

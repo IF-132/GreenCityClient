@@ -1,5 +1,8 @@
 import { Component, DoCheck, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Page } from 'src/app/ubs-admin/models/ubs-admin.interface';
+import { UbsAdminEmployeeService } from 'src/app/ubs-admin/services/ubs-admin-employee.service';
+import { UbsAdminEmployeeMethodsClass } from '../ubs-admin-abstract/ubs-admin-employee-methods';
 import { UbsAdminEmployeeTableComponent } from '../ubs-admin-employee-table/ubs-admin-employee-table.component';
 
 @Component({
@@ -7,7 +10,7 @@ import { UbsAdminEmployeeTableComponent } from '../ubs-admin-employee-table/ubs-
   templateUrl: './ubs-admin-employee-table-mobile.component.html',
   styleUrls: ['./ubs-admin-employee-table-mobile.component.scss']
 })
-export class UbsAdminEmployeeTableMobileComponent implements DoCheck {
+export class UbsAdminEmployeeTableMobileComponent extends UbsAdminEmployeeMethodsClass implements DoCheck {
   @Input()
   dataSource;
 
@@ -17,7 +20,9 @@ export class UbsAdminEmployeeTableMobileComponent implements DoCheck {
   isLoading = true;
   chooseItemId = 0;
 
-  constructor(private employeeTableFunc: UbsAdminEmployeeTableComponent) {}
+  constructor(private ubsAdminEmployeeService: UbsAdminEmployeeService, private dialog: MatDialog) {
+    super(dialog, ubsAdminEmployeeService);
+  }
 
   ngDoCheck(): void {
     if (this.dataSource) {
@@ -26,11 +31,11 @@ export class UbsAdminEmployeeTableMobileComponent implements DoCheck {
   }
 
   openModal(employeeData: Page): void {
-    this.employeeTableFunc.openModal(employeeData);
+    this.openModalWindow(employeeData);
   }
 
   deleteEmployee(employeeId: number) {
-    this.employeeTableFunc.deleteEmployee(employeeId);
+    this.toDeleteEmployee(employeeId);
   }
 
   setChooseItem(itemId: number): void {
