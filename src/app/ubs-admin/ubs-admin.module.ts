@@ -58,6 +58,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DialogPopUpComponent } from './components/shared/components/dialog-pop-up/dialog-pop-up.component';
 import { UbsAdminEmployeeTableMobileComponent } from './components/ubs-admin-employee/ubs-admin-employee-table-mobile/ubs-admin-employee-table-mobile.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     MatTableModule,
     MatDialogModule,
+    BrowserAnimationsModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

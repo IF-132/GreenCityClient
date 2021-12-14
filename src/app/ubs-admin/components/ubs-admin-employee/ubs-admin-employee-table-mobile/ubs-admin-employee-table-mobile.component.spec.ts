@@ -1,20 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Page } from 'src/app/ubs-admin/models/ubs-admin.interface';
-import { UbsAdminEmployeeTableComponent } from '../ubs-admin-employee-table/ubs-admin-employee-table.component';
+import { createTranslateLoaderUbs } from 'src/app/ubs-admin/ubs-admin.module';
+import { UbsAdminEmployeeMethodsClass } from '../ubs-admin-abstract/ubs-admin-employee-methods';
 
 import { UbsAdminEmployeeTableMobileComponent } from './ubs-admin-employee-table-mobile.component';
 
 class AdminEmployeeTableStub {
-  openModal() {}
-  deleteEmployee() {}
+  openModalWindow() {}
+  toDeleteEmployee() {}
 }
 
-describe('UbsAdminEmployeeTableMobileComponent', () => {
+fdescribe('UbsAdminEmployeeTableMobileComponent', () => {
   let component: UbsAdminEmployeeTableMobileComponent;
   let fixture: ComponentFixture<UbsAdminEmployeeTableMobileComponent>;
-  let employeeTableFunc: UbsAdminEmployeeTableComponent;
+  let employeeTableFunc: UbsAdminEmployeeMethodsClass;
   let mockUpPageData: Page = {
     id: 3,
     firstName: 'Andrii',
@@ -29,11 +34,28 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UbsAdminEmployeeTableMobileComponent],
-      imports: [HttpClientTestingModule, MatDialogModule],
-      providers: [{ provide: UbsAdminEmployeeTableComponent, useClass: AdminEmployeeTableStub }]
+      imports: [
+        HttpClientTestingModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoaderUbs,
+            deps: [HttpClient]
+          },
+          isolate: true
+        })
+      ],
+      providers: [
+        { provide: UbsAdminEmployeeMethodsClass, useClass: AdminEmployeeTableStub },
+        { provide: HttpClient, useValue: true }
+      ]
     }).compileComponents();
 
-    employeeTableFunc = TestBed.get(UbsAdminEmployeeTableComponent);
+    employeeTableFunc = TestBed.get(UbsAdminEmployeeMethodsClass);
   });
 
   beforeEach(() => {
@@ -49,18 +71,6 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
   it('detecting initial value of variables', () => {
     expect(component.isLoading).toBeTruthy();
     expect(component.chooseItemId).toBe(0);
-  });
-
-  it('check openModal function', () => {
-    spyOn(employeeTableFunc, 'openModal');
-    component.openModal(mockUpPageData);
-    expect(employeeTableFunc.openModal).toHaveBeenCalledWith(mockUpPageData);
-  });
-
-  it('check deleteEmployee function', () => {
-    spyOn(employeeTableFunc, 'deleteEmployee');
-    component.deleteEmployee(2);
-    expect(employeeTableFunc.deleteEmployee).toHaveBeenCalledWith(2);
   });
 
   it(' check setChooseItem function', () => {
