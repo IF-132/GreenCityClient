@@ -424,7 +424,7 @@ button {
   margin-top: 3em;
 
   p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .points-balance {
@@ -434,7 +434,7 @@ button {
 
   .bonus-how-to-link,
   small {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--ubs-electric-violet);
   }
 }
@@ -552,6 +552,13 @@ li {
   .buttons {
     display: flex !important;
     justify-content: center !important;
+    margin: 2em 0 1em;
+  }
+
+  .count {
+    .input {
+      text-align: center;
+    }
   }
 
   .addOrderBtn {
@@ -611,6 +618,20 @@ li {
     }
   }
 
+  .points {
+    text-align: center;
+
+    .bonus-how-to-link {
+      color: var(--ubs-button-light-grey);
+      border: 1px solid;
+      border-radius: 3px;
+      font-style: normal;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      margin: 1em 0;
+    }
+  }
+
   .middle-container {
     justify-content: center;
     text-align: center;
@@ -637,10 +658,6 @@ li {
 
   .messages-container {
     width: auto;
-    text-align: center;
-  }
-
-  .points {
     text-align: center;
   }
 
@@ -685,86 +702,3 @@ li {
     padding: 0;
   }
 }
-
-// @media (min-width: 481px) and (max-width: 767px) {
-// .label,
-// .bag-name {
-//   font-size: 0.8rem;
-// }
-
-//   .messages-container {
-//     width: 65%;
-//   }
-
-//   .totalInfo {
-//     span {
-//       font-size: 0.8rem;
-//     }
-
-//     .money-saved {
-//       font-size: 0.65rem;
-//     }
-//   }
-
-//   h3 {
-//     font-size: 1.3rem;
-//   }
-
-//   h5 {
-//     font-size: 1.1rem;
-//   }
-
-//   button {
-//     font-size: 1rem;
-//   }
-
-//   p,
-//   a,
-//   textarea,
-//   small,
-//   input {
-//     font-size: 0.8rem;
-//   }
-// }
-
-// @media (min-width: 320px) and (max-width: 480px) {
-//   .label,
-//   .bag-name {
-//     font-size: 0.6rem;
-//   }
-
-//   .messages-container {
-//     width: 80%;
-//   }
-
-//   .totalInfo {
-//     span {
-//       font-size: 0.6rem;
-//     }
-
-//     .money-saved {
-//       font-size: 0.58rem;
-//     }
-//   }
-
-//   h3 {
-//     font-size: 1.3rem;
-//   }
-
-//   h5 {
-//     font-size: 1.1rem;
-//   }
-
-//   button {
-//     width: 100px;
-//     font-size: 0.7rem;
-//   }
-
-//   p,
-//   a,
-//   textarea,
-//   small,
-//   input {
-//     font-size: 0.65rem;
-//   }
-// }
