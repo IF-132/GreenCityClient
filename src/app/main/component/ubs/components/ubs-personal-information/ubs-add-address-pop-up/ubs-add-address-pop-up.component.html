@@ -6,23 +6,24 @@
     {{ 'personal-info.pop-up-info-message' | translate }}
   </div>
   <div class="col-md-4 col-sm-4 form-group">
-    <label>{{ 'personal-info.address-region' | translate }}</label>
-    <select class="shadow-none form-control" disabled>
-      <option [ngValue]="null" selected>Київська</option>
+    <label>Region</label>
+    <select class="shadow-none form-control">
+      <option [ngValue]="null" selected></option>
+      <option *ngFor="let region of regions" [value]="region?.regionName"></option>
     </select>
   </div>
   <div class="col-md-4 col-sm-4 form-group">
     <label>{{ 'personal-info.pop-up-city' | translate }}</label>
     <select formControlName="city" class="shadow-none form-control">
       <option [ngValue]="null" selected disabled hidden>{{ 'personal-info.pop-up-city' | translate }}</option>
-      <option *ngFor="let city of cities" [value]="city.cityName">{{ city.cityName | translate }}</option>
+      <option *ngFor="let city of cities" [value]="city.cityName">{{ 'personal-info.pop-up-city-name' | translate }}</option>
     </select>
   </div>
   <div class="col-md-4 col-sm-4 form-group">
     <label>{{ 'personal-info.pop-up-district' | translate }}</label>
     <select formControlName="district" class="shadow-none form-control" [attr.disabled]="districtDisabled ? true : null">
       <option selected disabled hidden>{{ 'personal-info.pop-up-enter-you-location' | translate }}</option>
-      <option [selected]="selectedDistrict">{{ !!region ? region : ('personal-info.pop-up-enter-you-location' | translate) }}</option>
+      <option *ngFor="let region of regions">{{ region }}</option>
     </select>
     <div class="validation" *ngIf="district.invalid && addAddressForm.get('district').touched">
       <app-ubs-input-error [formElement]="district" [controlName]="'district'"></app-ubs-input-error>
@@ -38,8 +39,8 @@
       class="shadow-none form-control"
       (onAddressChange)="onDistrictSelected($event)"
       [options]="options"
-      (click)="setSelectedDistrict()"
       (change)="onChange()"
+      [attr.disabled]="addAddressForm.controls['city'].dirty ? null : true"
       placeholder="{{ 'personal-info.pop-up-enter-you-location' | translate }}"
       [pattern]="streetPattern"
     />
@@ -47,7 +48,7 @@
       <app-ubs-input-error [formElement]="street" [streetFieldValue]="street.value" [controlName]="'street'"> </app-ubs-input-error>
     </div>
   </div>
-  <div class="row col-lg-6 col-md-12 col-sm-12 d-flex justify-content-between flex-wrap form-group">
+  <div class="row col-lg-6 col-md-12 col-sm-12 d-flex justify-content-between form-group">
     <div class="item col-sm-4">
       <label>{{ 'personal-info.pop-up-house' | translate }}</label>
       <input
@@ -96,12 +97,12 @@
       <app-ubs-input-error [formElement]="addressComment" [controlName]="'addressComment'"> </app-ubs-input-error>
     </div>
   </div>
+  <div class="d-flex justify-content-center buttons" mat-dialog-actions>
+    <button class="secondary-global-button btn m-0 mr-2" mat-button (click)="onNoClick()" type="button">
+      {{ 'personal-info.pop-up-cancel' | translate }}
+    </button>
+    <button class="primary-global-button btn m-0" type="submit" (click)="addAdress()" [disabled]="!addAddressForm.valid || isDisabled">
+      {{ (data.edit ? 'personal-info.pop-up-save-changes' : 'personal-info.pop-up-add-address') | translate }}
+    </button>
+  </div>
 </form>
-<div class="d-flex justify-content-end buttons" mat-dialog-actions>
-  <button class="secondary-global-button btn m-0 mr-2" mat-button (click)="onNoClick()">
-    {{ 'personal-info.pop-up-cancel' | translate }}
-  </button>
-  <button class="primary-global-button btn m-0" (click)="addAdress()" [disabled]="!addAddressForm.valid || isDisabled">
-    {{ (data.edit ? 'personal-info.pop-up-save-changes' : 'personal-info.pop-up-add-address') | translate }}
-  </button>
-</div>

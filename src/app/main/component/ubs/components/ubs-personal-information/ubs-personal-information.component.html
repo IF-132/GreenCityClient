@@ -146,8 +146,28 @@
             name="address"
             type="radio"
             [value]="address.id"
-            [checked]="address.actual && address.city == currentLocation"
-            [disabled]="address.city !== currentLocation"
+            [checked]="
+              address.actual && currentLocation === kyivCityUA
+                ? address.city === currentLocation
+                : currentLocation === kyivCityEng
+                ? address.city === kyivCityUA
+                : currentLocation === kyivRegionEng
+                ? address.region === kyivRegionUA || address.city !== kyivCityUA
+                : currentLocation === kyivRegionUA
+                ? address.region === currentLocation || address.city !== kyivCityUA
+                : false
+            "
+            [disabled]="
+              currentLocation === kyivCityUA
+                ? address.city !== currentLocation
+                : currentLocation === kyivCityEng
+                ? address.city !== kyivCityUA
+                : currentLocation === kyivRegionEng
+                ? address.region !== kyivRegionUA || address.city === kyivCityUA
+                : currentLocation === kyivRegionUA
+                ? address.region !== currentLocation || address.city === kyivCityUA
+                : true
+            "
             (click)="checkAddress(address.id)"
           />
         </div>
@@ -160,7 +180,7 @@
         </div>
       </div>
     </ng-template>
-    <div class="w-100">
+    <div class="w-100 centered">
       <button
         type="button"
         class="btn add-address"
@@ -187,7 +207,7 @@
   </div>
 </form>
 
-<div class="w-100 d-flex justify-content-between buttons">
+<div class="w-100 d-flex justify-content-between buttons centered">
   <button class="secondary-global-button btn back-btn m-0" matStepperPrevious>
     <i class="fas fa-chevron-left" aria-hidden="true"></i> &nbsp; {{ 'personal-info.info-back' | translate }}
   </button>
