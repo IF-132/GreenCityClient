@@ -52,7 +52,7 @@ export class OrderService {
   }
 
   processOrder(order: Order): Observable<Order> {
-    return this.http.post<Order>(`${this.url}/processOrder`, order, { responseType: 'text' as 'json' });
+    return this.http.post<Order>(`${this.url}/processOrderIF`, order, { responseType: 'text' as 'json' });
   }
 
   processCertificate(certificate): Observable<ICertificate> {
@@ -108,7 +108,7 @@ export class OrderService {
   }
 
   processLiqPayOrder(order: Order): Observable<string> {
-    return this.http.post<string>(`${this.url}/processLiqPayOrder`, order, { responseType: 'text' as 'json' });
+    return this.http.post<string>(`${this.url}/processLiqPayOrderIF`, order, { responseType: 'text' as 'json' });
   }
 
   getLiqPayForm(): Observable<string> {

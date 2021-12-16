@@ -181,7 +181,7 @@ describe('OrderService', () => {
     service.processLiqPayOrder(orderMock).subscribe((data) => {
       expect(data).toEqual(null);
     });
-    httpTest('processLiqPayOrder', 'POST', null);
+    httpTest('processLiqPayOrderIF', 'POST', null);
   });
 
   it('method setOrder should call behaviorSubject.next(order)', () => {
