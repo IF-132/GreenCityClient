@@ -96,13 +96,16 @@
     min-width: 100vw;
     min-height: 100vh;
     padding: 16px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
   }
 
   .warning-text {
     max-width: 288px;
-    margin-bottom: 89px;
+    margin: 80px 0;
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
   }
 
   .buttons-container {
@@ -118,22 +121,8 @@
   .primary-global-button,
   .ubs-primary-global-button {
     height: 48px;
+    width: 175px;
     margin-bottom: 32px;
-  }
-}
-
-@media screen and (max-width: 319px) {
-  .warning-text {
-    text-align: center;
-  }
-
-  .buttons-container {
-    width: auto;
-  }
-
-  .secondary-global-button,
-  .ubs-primary-global-button,
-  .primary-global-button {
-    height: auto;
+    margin-right: 0;
   }
 }

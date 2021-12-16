@@ -41,7 +41,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 20px;
-    letter-spacing: 0.10000000149011612px;
+    letter-spacing: 0.1px;
     text-align: left;
   }
 }
@@ -132,7 +132,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
-  letter-spacing: 0.10000000149011612px;
+  letter-spacing: 0.1px;
   text-align: left;
 }
 
@@ -231,6 +231,50 @@
     position: relative;
     margin-left: 0;
     padding: 0 20px;
+    line-height: 24px;
+    color: var(--ubs-primary-black);
+    font-family: var(--primary-font);
+    background-color: var(--after-primary-light-grey);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    margin: 0;
+    padding-bottom: 100px;
+  }
+
+  .header-list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -32px;
+
+    div {
+      color: var(--ubs-primary-grey);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+      text-align: left;
+    }
+  }
+
+  .mat-expansion-panel-header {
+    width: 100%;
+    padding: 0 10px;
+
+    .mat-content {
+      align-items: center;
+    }
+  }
+
+  .wrapper {
+    width: 110%;
+    height: 100vh;
+    position: relative;
+    margin-left: 0;
+    padding: 0 15px 0 10px;
     line-height: 24px;
     color: var(--ubs-primary-black);
     font-family: var(--primary-font);

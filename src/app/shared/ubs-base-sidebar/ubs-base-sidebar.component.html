@@ -1,4 +1,10 @@
 <div class="main">
+  <mat-toolbar class="mobile-toolbar">
+    <button mat-icon-button class="mobile-menu" aria-label="Sidebar menu" (click)="toggleSideBar()">
+      <mat-icon class="mobile-icon">{{ !drawer.opened ? 'menu' : 'close' }}</mat-icon>
+    </button>
+  </mat-toolbar>
+
   <div class="sidebar-icons" #sideBarIcons>
     <ul class="sidebar-list">
       <li class="sidebar-list-item" (click)="toggleSideBar()" *ngFor="let listItem of listElements">
@@ -7,7 +13,7 @@
     </ul>
   </div>
   <mat-drawer-container class="sidebar" autosize>
-    <mat-drawer #drawer class="sidebar-slider" mode="side" opened="true" disableClose="false">
+    <mat-drawer #drawer class="sidebar-slider" mode="side" opened="true" disableClose="false" autoFocus="false">
       <ul class="sidebar-list">
         <li class="sidebar-list-item" *ngFor="let listItem of listElements" [routerLink]="listItem.routerLink" (click)="toggleSideBar()">
           <img

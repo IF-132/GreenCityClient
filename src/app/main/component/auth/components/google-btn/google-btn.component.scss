@@ -4,11 +4,10 @@
 
 .google-sign-in {
   display: flex;
-  padding: 0;
-  height: 40px;
+  height: 48px;
   width: 100%;
   background: #fff;
-  border: 0;
+  border: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.24);
   border-radius: 3px;
 }
@@ -28,5 +27,12 @@
   letter-spacing: 0.21875px;
   color: var(--primary-dark-grey);
   width: 100%;
-  margin-left: -34px;
+}
+
+@media screen and (max-width: 575px) {
+  button {
+    width: 95%;
+    margin-right: 0;
+    padding: 8px;
+  }
 }
