@@ -48,7 +48,8 @@ export class UbsOrderLocationPopupComponent implements OnInit, OnDestroy {
       .getLocations()
       .pipe(takeUntil(this.destroy$))
       .subscribe((res) => {
-        this.locations = res;
+        // get rid of "Країна чудес"
+        this.locations = res.slice(0, 4);
         this.selectedLocationId = this.locations[0].id;
         this.isFetching = false;
       });
