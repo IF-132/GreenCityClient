@@ -118,7 +118,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     MatTableModule,
     MatDialogModule,
-    BrowserAnimationsModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

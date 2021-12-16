@@ -16,7 +16,7 @@ class AdminEmployeeTableStub {
   toDeleteEmployee() {}
 }
 
-fdescribe('UbsAdminEmployeeTableMobileComponent', () => {
+describe('UbsAdminEmployeeTableMobileComponent', () => {
   let component: UbsAdminEmployeeTableMobileComponent;
   let fixture: ComponentFixture<UbsAdminEmployeeTableMobileComponent>;
   let employeeTableFunc: UbsAdminEmployeeMethodsClass;

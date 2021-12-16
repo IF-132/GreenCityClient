@@ -1,20 +1,14 @@
 import { Component, HostListener, Injectable, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { take } from 'rxjs/operators';
 import { Page } from 'src/app/ubs-admin/models/ubs-admin.interface';
 import { UbsAdminEmployeeService } from 'src/app/ubs-admin/services/ubs-admin-employee.service';
-import { DialogPopUpComponent } from '../../shared/components/dialog-pop-up/dialog-pop-up.component';
-import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { UbsAdminEmployeeMethodsClass } from '../ubs-admin-abstract/ubs-admin-employee-methods';
 
 @Component({
   selector: 'app-ubs-admin-employee-table',
   templateUrl: './ubs-admin-employee-table.component.html',
   styleUrls: ['./ubs-admin-employee-table.component.scss']
-})
-@Injectable({
-  providedIn: 'root'
 })
 export class UbsAdminEmployeeTableComponent extends UbsAdminEmployeeMethodsClass implements OnInit {
   currentPageForTable = 0;
@@ -179,7 +173,8 @@ export class UbsAdminEmployeeTableComponent extends UbsAdminEmployeeMethodsClass
     return !(this.screenWidth < 782 && this.screenWidth > 319);
   }
 
-  @HostListener('window:scroll', []) onWindowScroll() {
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
     this.onToggleScrollBtn();
   }
   onToggleScrollBtn() {

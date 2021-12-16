@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Page } from 'src/app/ubs-admin/models/ubs-admin.interface';
 import { UbsAdminEmployeeService } from 'src/app/ubs-admin/services/ubs-admin-employee.service';
 import { UbsAdminEmployeeMethodsClass } from '../ubs-admin-abstract/ubs-admin-employee-methods';
-import { UbsAdminEmployeeTableComponent } from '../ubs-admin-employee-table/ubs-admin-employee-table.component';
 
 @Component({
   selector: 'app-ubs-admin-employee-table-mobile',
