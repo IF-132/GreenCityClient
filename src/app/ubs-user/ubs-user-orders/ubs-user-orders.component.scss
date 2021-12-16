@@ -1,6 +1,6 @@
 .wrapper {
   height: 100vh;
-  margin-top: 35px;
+  margin-top: 5px;
   font-size: 16px;
   line-height: 24px;
   color: var(--ubs-primary-black);
@@ -9,7 +9,7 @@
 }
 
 .main_header {
-  margin: 0 0 51px 44px;
+  margin: 0 0 30px 20px;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -26,9 +26,33 @@
 }
 
 .cards {
-  width: 862px;
+  width: 100%;
 
   .empty {
     height: 80px;
+  }
+}
+
+@media (max-width: 960px) {
+  .wrapper {
+    height: 100vh;
+    margin: 5px 0 0 45px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--ubs-primary-black);
+    font-family: var(--primary-font);
+    background-color: var(--after-primary-light-grey);
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    height: 100vh;
+    margin: 5px 10px 0 10px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--ubs-primary-black);
+    font-family: var(--primary-font);
+    background-color: var(--after-primary-light-grey);
   }
 }

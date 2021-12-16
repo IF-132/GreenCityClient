@@ -11,9 +11,7 @@
     </div>
   </div>
   <div class="buttons-container">
-    <button
-      [ngClass]="router.url === '/ubs/order' ? 'ubs-secondary-global-button' : 'secondary-global-button'"
-      (click)="userReply(false)">
+    <button [ngClass]="router.url === '/ubs/order' ? 'ubs-secondary-global-button' : 'secondary-global-button'" (click)="userReply(false)">
       {{ popupCancel | translate }}
     </button>
     <button [ngClass]="router.url === '/ubs/order' ? 'ubs-primary-global-button' : 'primary-global-button'" (click)="userReply(true)">
