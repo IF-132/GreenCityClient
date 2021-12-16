@@ -161,7 +161,6 @@ export class UBSSubmitOrderComponent extends FormBaseComponent implements OnInit
     }
 
     if (!this.isLiqPay) {
-      this.localStorageService.removeUbsOrderId();
       this.orderService
         .getOrderUrl()
         .pipe(takeUntil(this.destroy))
@@ -176,14 +175,16 @@ export class UBSSubmitOrderComponent extends FormBaseComponent implements OnInit
         )
         .subscribe(
           (response) => {
+            const { orderId, link } = JSON.parse(response);
             this.shareFormService.orderUrl = '';
             this.localStorageService.removeUbsOrderId();
             if (this.isFinalSumZero && !this.isTotalAmountZero) {
-              this.ubsOrderFormService.transferOrderId(response);
+              this.ubsOrderFormService.transferOrderId(orderId);
               this.ubsOrderFormService.setOrderResponseErrorStatus(false);
               this.ubsOrderFormService.setOrderStatus(true);
             } else {
-              this.shareFormService.orderUrl = response.toString();
+              this.shareFormService.orderUrl = link.toString();
+              this.localStorageService.setUbsFondyOrderId(orderId);
               document.location.href = this.shareFormService.orderUrl;
             }
           },

@@ -39,14 +39,12 @@ export class UbsBaseSidebarComponent implements AfterViewInit, OnDestroy {
       this.stopClick = true;
       setTimeout(() => {
         this.sideBarIcons.nativeElement.style.zIndex = '2';
-        this.sidebarContainer.nativeElement.style.marginLeft = '25px';
         this.stopClick = false;
       }, 350);
       this.openClose = false;
     } else {
       if (!this.drawer.opened) {
         this.drawer.toggle();
-        this.sidebarContainer.nativeElement.style.marginLeft = '85px';
         this.sideBarIcons.nativeElement.style.zIndex = '4';
         this.openClose = true;
       }

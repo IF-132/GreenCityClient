@@ -2,6 +2,16 @@
   position: relative;
   display: grid;
 
+  .mobile-toolbar {
+    margin-top: 80px;
+    display: none;
+    background-color: var(--ubs-primary-grey);
+
+    .mobile-icon {
+      color: var(--ubs-grey-white);
+    }
+  }
+
   .sidebar {
     .sidebar-container {
       margin-left: 25px;
@@ -85,5 +95,40 @@
   .count-unread-messages {
     color: var(--ubs-primary-white);
     margin: 0 -25px 0 -10px;
+  }
+
+  @media (max-width: 480px) {
+    .sidebar-icons {
+      display: none;
+    }
+
+    .mobile-toolbar {
+      margin-top: 80px;
+      display: flex;
+      background-color: var(--ubs-primary-grey);
+
+      .mobile-icon {
+        color: var(--ubs-grey-white);
+      }
+    }
+
+    .main-content {
+      margin-top: 40px;
+      overflow-x: hidden;
+      min-height: 345px;
+    }
+
+    .sidebar {
+      .sidebar-container {
+        margin: 0;
+        width: 100%;
+      }
+
+      .sidebar-slider {
+        position: absolute;
+        background-color: var(--ubs-primary-grey);
+        margin-top: 0;
+      }
+    }
   }
 }

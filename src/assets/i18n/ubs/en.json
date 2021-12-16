@@ -141,7 +141,7 @@
     "bags": "bags"
   },
   "confirmation": {
-    "cancel": "Save & exit",
+    "cancel": "Exit",
     "dismiss": "Continue",
     "delete": "Delete",
     "title": "Are you sure you want to exit?",

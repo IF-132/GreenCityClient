@@ -99,14 +99,17 @@ export interface Address {
   actual: boolean;
   id: number;
   city: string;
+  region: string;
   district: string;
   street: string;
   houseCorpus: string;
   entranceNumber: string;
   houseNumber: string;
   addressComment?: string;
-  longitude?: number;
-  latitude?: number;
+  coordinates: {
+    latitude?: number;
+    longitude?: number;
+  };
 }
 
 export interface Locations {

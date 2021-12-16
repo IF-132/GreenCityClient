@@ -156,6 +156,7 @@ footer {
       width: 100%;
       text-align: center;
       margin-top: 50px;
+      padding-left: 25px;
       padding-bottom: 25px;
 
       .par {
@@ -220,6 +221,17 @@ footer {
           width: 100%;
           margin-top: 100px;
         }
+      }
+
+      .social-networks {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-around;
+        margin-top: 60px;
+        padding: 0 30px 40px 30px;
+        border-bottom-style: inset;
+        border-bottom-color: #ddd;
+        border-bottom-width: 2px;
       }
     }
   }

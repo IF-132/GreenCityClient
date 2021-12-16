@@ -58,12 +58,16 @@ describe('OrderService', () => {
     actual: true,
     id: 100500,
     city: '',
+    region: '',
     district: '',
     street: '',
     houseCorpus: '',
     entranceNumber: '',
     houseNumber: '',
-    shouldBePaid: false
+    coordinates: {
+      latitude: 0,
+      longitude: 0
+    }
   };
 
   const orderMock = new Order([''], 7, [bagMock], [''], '8', personalData, 9, false);
@@ -177,7 +181,7 @@ describe('OrderService', () => {
     service.processLiqPayOrder(orderMock).subscribe((data) => {
       expect(data).toEqual(null);
     });
-    httpTest('processLiqPayOrder', 'POST', null);
+    httpTest('processLiqPayOrderIF', 'POST', null);
   });
 
   it('method setOrder should call behaviorSubject.next(order)', () => {

@@ -1,9 +1,11 @@
-<h1 class="title-text">
-  {{ 'user.auth.sign-up.title-up' | translate }}
-</h1>
-<h2 class="subtitle-text">
-  {{ 'user.auth.sign-up.fill-form-up' | translate }}
-</h2>
+<div class="text-container">
+  <h1 class="title-text">
+    {{ 'user.auth.sign-up.title-up' | translate }}
+  </h1>
+  <h2 class="subtitle-text">
+    {{ 'user.auth.sign-up.fill-form-up' | translate }}
+  </h2>
+</div>
 <form *ngIf="signUpForm" (ngSubmit)="onSubmit(userOwnSignUp)" [formGroup]="signUpForm" class="form-content-container">
   <label class="content-label" for="email" aria-required="true">
     {{ 'user.auth.sign-up.email' | translate }}

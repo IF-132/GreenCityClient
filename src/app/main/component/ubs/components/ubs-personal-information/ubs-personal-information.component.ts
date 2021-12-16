@@ -33,6 +33,10 @@ export class UBSPersonalInformationComponent extends FormBaseComponent implement
   currentLocationId: number;
   locations = [];
   currentLanguage: string;
+  kyivCityUA = 'Київ';
+  kyivCityEng = 'Kyiv';
+  kyivRegionUA = 'Київська область';
+  kyivRegionEng = 'Kyiv region';
   private destroy: Subject<boolean> = new Subject<boolean>();
   private personalDataFormValidators: ValidatorFn[] = [
     Validators.required,
@@ -72,13 +76,8 @@ export class UBSPersonalInformationComponent extends FormBaseComponent implement
       this.currentLocation = data;
     });
     this.orderService.currentAddress.subscribe((data: Address) => {
-      if (data && data.city === this.currentLocation) {
-        this.personalDataForm.controls.address.setValue(data);
-        this.personalDataForm.controls.addressComment.setValue(data.addressComment);
-      } else {
-        this.personalDataForm.controls.address.setValue({});
-        this.personalDataForm.controls.addressComment.setValue('');
-      }
+      this.personalDataForm.controls.address.setValue(data);
+      this.personalDataForm.controls.addressComment.setValue(data.addressComment);
     });
   }
 
@@ -163,8 +162,8 @@ export class UBSPersonalInformationComponent extends FormBaseComponent implement
     this.personalData.houseNumber = activeAddress.houseNumber;
     this.personalData.houseCorpus = activeAddress.houseCorpus;
     this.personalData.entranceNumber = activeAddress.entranceNumber;
-    this.personalData.latitude = activeAddress.latitude;
-    this.personalData.longitude = activeAddress.longitude;
+    this.personalData.latitude = activeAddress.coordinates.latitude;
+    this.personalData.longitude = activeAddress.coordinates.longitude;
   }
 
   setFormData(): void {
@@ -243,7 +242,9 @@ export class UBSPersonalInformationComponent extends FormBaseComponent implement
     const dialogConfig = new MatDialogConfig();
     dialogConfig.panelClass = 'address-matDialog-styles';
     dialogConfig.data = {
-      edit: isEdit
+      edit: isEdit,
+      currentLocation: this.currentLocation,
+      disrtrict: currentAddress?.district
     };
     if (isEdit) {
       dialogConfig.data.address = currentAddress;
