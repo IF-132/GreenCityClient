@@ -97,10 +97,9 @@ footer {
 
     .social-networks {
       width: 100%;
-      display: inline-flex;
-      justify-content: flex-end;
+      display: flex;
+      justify-content: center;
       margin-top: 60px;
-      padding-right: 30px;
       padding-bottom: 40px;
       border-bottom-style: inset;
       border-bottom-color: #ddd;
@@ -115,8 +114,12 @@ footer {
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        margin-right: 8px;
+        margin-right: 45px;
         border-radius: 50%;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
 
       .fa-facebook,
@@ -151,7 +154,7 @@ footer {
 
     .footer-bottom-part {
       width: 100%;
-      text-align: left;
+      text-align: center;
       margin-top: 50px;
       padding-left: 25px;
       padding-bottom: 25px;
