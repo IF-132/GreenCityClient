@@ -7,21 +7,25 @@
   }
 }
 
-.title-text {
-  margin-bottom: 8px;
-  font-family: var(--secondary-font);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 40px;
-  color: var(--tertiary-dark-grey);
-}
+.text-container {
+  text-align: center;
 
-.subtitle-text {
-  font-size: 16px;
-  font-family: var(--primary-font);
-  line-height: 16px;
-  color: var(--primary-dark-grey);
+  .title-text {
+    margin-bottom: 8px;
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 40px;
+    color: var(--tertiary-dark-grey);
+  }
+
+  .subtitle-text {
+    font-size: 16px;
+    font-family: var(--primary-font);
+    line-height: 16px;
+    color: var(--primary-dark-grey);
+  }
 }
 
 .form-content-container {
@@ -30,7 +34,7 @@
   margin: 0 0 40px;
 
   .content-label {
-    margin: 21px 0 4px;
+    margin: 20px 0 4px;
     font-size: 12px;
     font-family: var(--primary-font);
     line-height: 14px;
@@ -107,7 +111,7 @@
   .primary-global-button {
     margin-top: 40px;
     height: 48px;
-    width: 368px;
+    width: 100%;
     padding: 16px 116px;
     font-weight: 600;
     border-radius: 3px;
@@ -121,7 +125,7 @@
   }
 
   .switch-sign-up {
-    margin: 8px 0;
+    margin: 15px 0;
     font-size: 12px;
     line-height: 12px;
     text-align: center;
@@ -130,6 +134,7 @@
 }
 
 .exist-account {
+  text-align: center;
   margin-bottom: 40px;
   font-size: 16px;
   font-family: var(--primary-font);
@@ -153,9 +158,35 @@
   }
 }
 
-@media (max-width: 375px) {
+@media screen and (max-width: 575px) {
+  .ubs-primary-global-button {
+    margin-top: 65px;
+  }
+
+  .form-content-container {
+    .main-data-input,
+    .main-data-input-password {
+      width: 350px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) and (max-height: 670px) {
+  .ubs-primary-global-button {
+    margin-top: 25px;
+  }
+
   .title-text {
-    font-size: 32px;
-    line-height: 32px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .form-content-container {
+    margin: 0 0 20px;
+
+    .main-data-input,
+    .main-data-input-password {
+      width: 100%;
+    }
   }
 }

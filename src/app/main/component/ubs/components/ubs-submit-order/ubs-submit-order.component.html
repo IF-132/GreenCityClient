@@ -128,7 +128,7 @@
 </div>
 
 <div
-  class="w-100 d-flex justify-content-between buttons"
+  class="w-100 d-flex justify-content-between buttons centered"
   *ngIf="(bags.length && personalData) || (isNotification && isDownloadDataNotification)"
 >
   <button *ngIf="!isNotification" class="secondary-global-button btn btn-back" matStepperPrevious>
@@ -138,10 +138,10 @@
     <button class="secondary-global-button btn cansel-button btn-main" (click)="cancelUBS()">
       {{ 'order-details.cancel' | translate }}
     </button>
-    <button *ngIf="!isLiqPay" [disabled]="isTotalAmountZero" (click)="redirectToOrder()" type="submit" class="primary-global-button btn">
+    <button [disabled]="isTotalAmountZero || loadingAnim" (click)="redirectToOrder()" type="submit" class="primary-global-button btn">
       <span *ngIf="loadingAnim" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"> </span>
       {{ 'submit-order.to-order' | translate }}
     </button>
-    <button *ngIf="isLiqPay" id="liqPayButton" (click)="onNotSaveData()"></button>
+    <button id="liqPayButton" [innerHTML]="liqPayButtonForm" style="display: none"></button>
   </div>
 </div>

@@ -277,34 +277,34 @@ h3 {
   }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 575px) {
   .label,
   .bag-name {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .totalInfo {
     span {
-      font-size: 0.6rem;
+      font-size: 0.9rem;
     }
 
     .money-saved {
-      font-size: 0.58rem;
+      font-size: 0.9rem;
     }
   }
 
   .bottom_comment {
     .bottom_comment_payment {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
 
   h5 {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
   button {
@@ -313,11 +313,15 @@ h3 {
   }
 
   .order-header {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  .order-list-item {
+    font-size: 0.9rem;
   }
 
   .payment-select {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     width: 250px;
   }
 
@@ -329,7 +333,20 @@ h3 {
   li,
   .choose-payment,
   .choose-payment-chooser {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .centered {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 1em;
+    padding: 5px 1.35em;
+  }
+
+  .middle-container {
+    .order-info-container {
+      width: 100%;
+    }
   }
 }
 

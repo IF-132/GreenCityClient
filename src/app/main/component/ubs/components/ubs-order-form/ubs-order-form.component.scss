@@ -68,3 +68,17 @@
     }
   }
 }
+
+@media screen and (max-width: 575px) {
+  ::ng-deep .mat-horizontal-content-container {
+    padding: 0 !important;
+  }
+
+  .container {
+    width: 105vw;
+  }
+
+  .form-title {
+    margin: 10px 0 35px 0;
+  }
+}
