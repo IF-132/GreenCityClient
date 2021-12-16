@@ -6,7 +6,7 @@ import { Employees } from 'src/app/ubs-admin/models/ubs-admin.interface';
 import { UbsAdminEmployeeService } from 'src/app/ubs-admin/services/ubs-admin-employee.service';
 import { UbsAdminEmployeeTableComponent } from './ubs-admin-employee-table.component';
 
-fdescribe('UbsAdminEmployeeTableComponent', () => {
+describe('UbsAdminEmployeeTableComponent', () => {
   let component: UbsAdminEmployeeTableComponent;
   let fixture: ComponentFixture<UbsAdminEmployeeTableComponent>;
   let adminEmployeeService: UbsAdminEmployeeService;
