@@ -144,6 +144,14 @@ export class SignInComponent implements OnInit, OnDestroy {
           });
       })
       .catch((fail) => console.log('redirect has failed ' + fail));
+    this.checkUBSuserData();
+  }
+
+  private checkUBSuserData() {
+    const ubsData = this.localeStorageService.getUbsPersonalData();
+    if (ubsData && ubsData.email !== this.jwtService.getEmailFromAccessToken()) {
+      this.localeStorageService.deleteUbsPersonalData();
+    }
   }
 
   public togglePassword(input: HTMLInputElement, src: HTMLImageElement): void {
@@ -169,6 +177,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.jwtService.userRole$.next(this.jwtService.getUserRole());
     this.navigateToLink = this.isUbs ? ['ubs'] : ['profile', data.userId];
     this.router.navigate(this.navigateToLink);
+    this.checkUBSuserData();
   }
 
   private onSignInFailure(errors: HttpErrorResponse): void {

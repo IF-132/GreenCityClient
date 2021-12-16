@@ -33,6 +33,10 @@ export class UBSPersonalInformationComponent extends FormBaseComponent implement
   currentLocationId: number;
   locations = [];
   currentLanguage: string;
+  kyivCityUA = 'Київ';
+  kyivCityEng = 'Kyiv';
+  kyivRegionUA = 'Київська область';
+  kyivRegionEng = 'Kyiv region';
   private destroy: Subject<boolean> = new Subject<boolean>();
   private personalDataFormValidators: ValidatorFn[] = [
     Validators.required,
