@@ -1,0 +1,150 @@
+<div *ngIf="!isLoading; else spinner">
+  <ng-template #mobielView>
+    <mat-expansion-panel
+      *ngFor="let data of dataSource.filteredData"
+      trackBy:identify
+      [expanded]="chooseItemId === data.id"
+      (opened)="setChooseItem(data.id)"
+      hideToggle
+      #accordionItem
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title [style.visibility]="!accordionItem.expanded ? '' : 'hidden'">
+          {{ data.firstName }} {{ data.lastName }}
+        </mat-panel-title>
+        <mat-icon *ngIf="!accordionItem.expanded">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="accordionItem.expanded">keyboard_arrow_up</mat-icon>
+      </mat-expansion-panel-header>
+      <div class="employee-table-mobile">
+        <div id="edit-delete-btn">
+          <mat-icon class="mat-icon" (click)="openModal(data)">edit</mat-icon>
+          <mat-icon class="mat-icon" (click)="deleteEmployee(data.id)">delete</mat-icon>
+        </div>
+        <div class="employee-cell">
+          <div class="title">
+            <p>
+              <small> {{ 'ubs-employee.employeeName' | translate }} </small>
+            </p>
+          </div>
+          <div class="employee-info">
+            <p>{{ data.firstName }} {{ data.lastName }}</p>
+          </div>
+        </div>
+        <div class="employee-cell">
+          <div class="title">
+            <p>
+              <small> {{ 'ubs-employee.position' | translate }} </small>
+            </p>
+          </div>
+          <div class="employee-info">
+            <p *ngFor="let position of data.employeePositions">
+              {{ position.name }}
+            </p>
+          </div>
+        </div>
+
+        <div class="employee-cell">
+          <div class="title">
+            <p>
+              <small> {{ 'ubs-employee.receiving-station' | translate }} </small>
+            </p>
+          </div>
+          <div class="employee-info">
+            <p *ngFor="let station of data.receivingStations">
+              {{ station.name }}
+            </p>
+          </div>
+        </div>
+
+        <div class="employee-cell">
+          <div class="title">
+            <p>
+              <small> {{ 'ubs-employee.email' | translate }} </small>
+            </p>
+          </div>
+          <div class="employee-info">
+            <p>
+              <a [href]="'mailto:' + data.email"> {{ data.email }} </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="employee-cell">
+          <div class="title">
+            <p>
+              <small> {{ 'ubs-employee.phone' | translate }} </small>
+            </p>
+          </div>
+          <div class="employee-info">
+            <p>
+              <a [href]="'tel:' + data.phoneNumber"> {{ data.phoneNumber }} </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </ng-template>
+
+  <div *ngIf="screenWidth > 480; else mobielView">
+    <div class="employee-table-tablet" *ngFor="let data of dataSource.filteredData">
+      <div id="edit-delete-btn" class="edit-delete-tablet">
+        <mat-icon class="mat-icon" (click)="openModal(data)">edit</mat-icon>
+        <mat-icon class="mat-icon" (click)="deleteEmployee(data.id)">delete</mat-icon>
+      </div>
+      <div class="employee-cell">
+        <div class="title">
+          <p>{{ 'ubs-employee.employeeName' | translate }}</p>
+        </div>
+        <div class="employee-info">
+          <p>{{ data.firstName }} {{ data.lastName }}</p>
+        </div>
+      </div>
+      <div class="employee-cell">
+        <div class="title">
+          <p>{{ 'ubs-employee.position' | translate }}</p>
+        </div>
+        <div class="employee-info">
+          <p *ngFor="let position of data.employeePositions">
+            {{ position.name }}
+          </p>
+        </div>
+      </div>
+
+      <div class="employee-cell">
+        <div class="title">
+          <p>{{ 'ubs-employee.receiving-station' | translate }}</p>
+        </div>
+        <div class="employee-info">
+          <p *ngFor="let station of data.receivingStations">
+            {{ station.name }}
+          </p>
+        </div>
+      </div>
+
+      <div class="employee-cell">
+        <div class="title">
+          <p>{{ 'ubs-employee.email' | translate }}</p>
+        </div>
+        <div class="employee-info">
+          <p>
+            <a [href]="'mailto:' + data.email"> {{ data.email }} </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="employee-cell">
+        <div class="title">
+          <p>{{ 'ubs-employee.phone' | translate }}</p>
+        </div>
+        <div class="employee-info">
+          <p>
+            <a [href]="'tel:' + data.phoneNumber"> {{ data.phoneNumber }} </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>

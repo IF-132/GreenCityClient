@@ -32,7 +32,6 @@ jobs:
           wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
           unzip sonar-scanner-cli-4.2.0.1873-linux.zip
           sudo mv sonar-scanner-4.2.0.1873-linux /opt/sonar-scanner
-
       - name: JS Linter
         run: npm run lint
 
@@ -58,7 +57,6 @@ jobs:
           -Dsonar.tests=src
           -Dsonar.test.inclusions=**/*.spec.ts
           -Dsonar.javascript.lcov.reportPaths=coverage/GreenCityClient/lcov.info
-
       - name: E2E Tests
         run: npx ng e2e --protractor-config=e2e/protractor-ci.conf.js
 
@@ -66,7 +64,6 @@ jobs:
         run: |
           npx ng build --prod --delete-output-path --base-href=/GreenCityClient/ --outputPath=dist_aot && rm -rf dist_aot
           npx ng build --prod --base-href=/GreenCityClient/ --aot=false --build-optimizer=false
-
       - name: Deploy 🚀
         if: ${{ github.event_name == 'push' }}
         uses: JamesIves/github-pages-deploy-action@3.7.1
