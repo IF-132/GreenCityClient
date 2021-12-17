@@ -1,35 +1,39 @@
-mat-panel-title {
+.card-title-name {
   justify-content: space-between;
 }
 
-.employee-table-mobile {
-  #edit-delete-btn {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+p {
+  margin: 0;
+}
 
-    .mat-icon {
-      margin: 0 15px;
-      color: var(--ubs-quintynary-light-grey);
-    }
+#edit-delete-btn {
+  display: flex;
+  justify-content: center;
+}
 
-    .mat-icon:hover {
-      color: var(--ubs-tertiary-grey);
-      cursor: pointer;
-    }
-  }
+.card-element {
+  margin-bottom: 25px;
+}
 
-  .employee-cell {
-    margin-bottom: 15px;
+.employee-cell {
+  margin-bottom: 15px;
 
-    .employee-info {
-      padding-left: 15px;
+  .employee-info {
+    padding-left: 15px;
 
-      p {
-        overflow-wrap: break-word;
-      }
+    p {
+      overflow-wrap: break-word;
     }
   }
+}
+
+.mat-icon {
+  color: var(--ubs-quintynary-light-grey);
+}
+
+.mat-icon:hover {
+  color: var(--ubs-tertiary-grey);
+  cursor: pointer;
 }
 
 .employee-table-tablet {
@@ -40,18 +44,10 @@ mat-panel-title {
   }
 
   #edit-delete-btn {
-    display: flex;
-    justify-content: center;
     padding: 15 0;
 
     .mat-icon {
       margin: 10px 20px;
-      color: var(--ubs-quintynary-light-grey);
-    }
-
-    .mat-icon:hover {
-      color: var(--ubs-tertiary-grey);
-      cursor: pointer;
     }
   }
 
@@ -100,10 +96,12 @@ mat-panel-title {
   }
 }
 
-p {
-  margin: 0;
-}
+.employee-table-mobile {
+  #edit-delete-btn {
+    margin-bottom: 20px;
 
-mat-expansion-panel {
-  margin-bottom: 25px;
+    .mat-icon {
+      margin: 0 15px;
+    }
+  }
 }

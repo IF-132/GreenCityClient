@@ -7,9 +7,10 @@
       (opened)="setChooseItem(data.id)"
       hideToggle
       #accordionItem
+      class="card-element"
     >
       <mat-expansion-panel-header>
-        <mat-panel-title [style.visibility]="!accordionItem.expanded ? '' : 'hidden'">
+        <mat-panel-title class="card-title-name" [style.visibility]="!accordionItem.expanded ? '' : 'hidden'">
           {{ data.firstName }} {{ data.lastName }}
         </mat-panel-title>
         <mat-icon *ngIf="!accordionItem.expanded">keyboard_arrow_down</mat-icon>
