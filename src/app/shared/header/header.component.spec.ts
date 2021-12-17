@@ -106,7 +106,8 @@ describe('HeaderComponent', () => {
     component.toggleBurgerMenu = false;
     // @ts-ignore
     component.userId = 1;
-    dialog = TestBed.get(MatDialog);
+    // @ts-ignore
+    dialog = TestBed.inject(MatDialog) as jasmine.SpyObj<MatDialog>;
 
     fixture.detectChanges();
   });

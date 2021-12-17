@@ -10,7 +10,7 @@ describe('UbsAdminEmployeeTableComponent', () => {
   let component: UbsAdminEmployeeTableComponent;
   let fixture: ComponentFixture<UbsAdminEmployeeTableComponent>;
   let adminEmployeeService: UbsAdminEmployeeService;
-  let employeesMockUp: Employees = {
+  const employeesMockUp: Employees = {
     currentPage: 1,
     first: true,
     hasNext: true,
@@ -44,7 +44,7 @@ describe('UbsAdminEmployeeTableComponent', () => {
   beforeEach(async(() => {
     fixture = TestBed.createComponent(UbsAdminEmployeeTableComponent);
     component = fixture.componentInstance;
-    adminEmployeeService = TestBed.get(UbsAdminEmployeeService);
+    adminEmployeeService = TestBed.inject(UbsAdminEmployeeService);
     fixture.detectChanges();
   }));
 
@@ -58,7 +58,7 @@ describe('UbsAdminEmployeeTableComponent', () => {
   });
 
   it('ngOnInit function check', () => {
-    let spy = spyOn(component, 'getTable');
+    const spy = spyOn(component, 'getTable');
 
     component.ngOnInit();
     expect(component.screenWidth).toBeDefined();
@@ -96,9 +96,9 @@ describe('UbsAdminEmployeeTableComponent', () => {
 
   it('onScroll function check', () => {
     component.currentPageForTable = 1;
-    let updateTable = false;
-    let currentPage = 1;
-    let totalPages = 2;
+    const updateTable = false;
+    const currentPage = 1;
+    const totalPages = 2;
     component.onScroll();
     if (!updateTable && currentPage < totalPages) {
       component.currentPageForTable++;
