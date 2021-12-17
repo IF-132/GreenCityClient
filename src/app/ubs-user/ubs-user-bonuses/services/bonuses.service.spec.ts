@@ -32,8 +32,8 @@ describe('BonusesService', () => {
     });
 
     injector = getTestBed();
-    service = injector.get(BonusesService);
-    httpMock = injector.get(HttpTestingController);
+    service = injector.inject(BonusesService);
+    httpMock = injector.inject(HttpTestingController);
   });
 
   afterEach(() => {

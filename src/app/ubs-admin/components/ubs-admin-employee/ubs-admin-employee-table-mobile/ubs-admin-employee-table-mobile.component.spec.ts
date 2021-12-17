@@ -20,7 +20,7 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
   let component: UbsAdminEmployeeTableMobileComponent;
   let fixture: ComponentFixture<UbsAdminEmployeeTableMobileComponent>;
   let employeeTableFunc: UbsAdminEmployeeMethodsClass;
-  let mockUpPageData: Page = {
+  const mockUpPageData: Page = {
     id: 3,
     firstName: 'Andrii',
     lastName: 'K',
@@ -55,7 +55,7 @@ describe('UbsAdminEmployeeTableMobileComponent', () => {
       ]
     }).compileComponents();
 
-    employeeTableFunc = TestBed.get(UbsAdminEmployeeMethodsClass);
+    employeeTableFunc = TestBed.inject(UbsAdminEmployeeMethodsClass);
   });
 
   beforeEach(() => {

@@ -31,7 +31,7 @@ describe('SocialNetworksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SocialNetworksComponent);
     component = fixture.componentInstance;
-    dialog = TestBed.get(MatDialog);
+    dialog = TestBed.inject(MatDialog) as jasmine.SpyObj<MatDialog>;
 
     fixture.detectChanges();
   });
